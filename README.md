@@ -52,3 +52,27 @@ Welcome to **My Codebase**, a comprehensive repository containing Jupyter Notebo
 ```bash
 git clone https://github.com/jstvdk/my_codebase.git
 cd my_codebase
+```
+
+### Set Up a Virtual Environment and installing the dependencies
+
+From the project root directory:
+
+```bash
+conda create -n my_codebase_env python=3.10
+conda activate my_codebase_env
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+### Install `muonpipe` Module in Editable Mode
+
+The `muonpipe` module is essential for the functionality of almost all python related code in this repository. Installing it in editable mode ensures that any changes made to the module are immediately available without needing to reinstall.
+
+**To install it, navigate to the `python_modules` Directory:**
+
+   ```bash
+   cd python/python_modules/muonpipe
+   pip install -e .
+   ```
+
+   **Note:** Ensure that you’re using the same Python environment (e.g., virtual environment) for both installing the package and running Jupyter Notebooks
