@@ -1,0 +1,38 @@
+@startuml
+
+start
+-> input data stream;
+
+repeat:Load new event;
+  :Check number of triggered tels:;
+repeat while (len(tels_with_trigger) > 1) is (no)
+
+->yes;
+
+  :Calibrate R1 to DL1;
+
+  :Perform Muon Processing;
+
+  switch (Apply quality cuts:)
+  case (completeness)
+  : > 0.9;
+  case (min_pixel) 
+  : > 40;
+  case (containment) 
+  : > 0.5;
+endswitch
+
+:For every triggered telescope:;
+
+-> Build image;
+
+
+
+
+
+stop
+
+@enduml
+
+
+

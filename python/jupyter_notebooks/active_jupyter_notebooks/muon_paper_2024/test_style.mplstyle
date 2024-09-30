@@ -1,0 +1,11 @@
+font.size: 22
+figure.figsize: 12, 12
+axes.labelsize: large
+axes.titlesize: x-large
+xtick.labelsize: medium
+ytick.labelsize: medium
+legend.fontsize: large
+lines.linewidth: 2
+lines.markersize: 8
+font.family: serif
+font.serif: Times New Roman

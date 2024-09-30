@@ -1,0 +1,36 @@
+@startuml
+
+start
+
+note right
+  Input data: eventsource R1 waveforms
+end note
+
+: R1-DL1 calibration;
+note right
+  Performing image extraction using GlobalPeakWindowSum (shift/width = 4/8) 
+end note
+: Image cleaning (tailcuts);
+note right
+  Input: camera geometry, dl1 image, thresholds (10,5)
+  Output: A boolean mask of clean pixels
+end note
+: Ring geometry fit (kundu_chaudhuri method);
+note right
+  Input: x,y coord, image (weights for each pixel), clean mask
+  Output: ring center, radius
+end note
+: Intensity fitting;
+note right
+  Input: ring center, radius, image, pedestal stddev, mask
+  Output: impact point, width, optical efficiency
+end note
+: Quality cuts applying;
+
+stop
+note right
+  Output data: table with muon parameters
+end note
+
+@enduml
+

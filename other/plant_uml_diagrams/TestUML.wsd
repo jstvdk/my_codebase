@@ -1,0 +1,22 @@
+@startuml
+
+
+:Raw Data, 3.7 kHz;
+
+if "Flagging" then
+  -->[true] "Some Action"
+  --> "Another Action"
+  -right-> (*)
+else
+  ->[false] "Something else"
+  -->[Ending process] (*)
+endif
+
+
+
+:Disk;
+
+
+@enduml
+
+

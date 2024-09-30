@@ -1,0 +1,83 @@
+@startuml
+skinparam monochrome true
+
+
+    
+package "Simulation Chain for 4LST muons" {
+
+    rectangle "Corsica simulation" as CorsicaBlock 
+
+node "Input parameters Corsika" {
+    note left
+    NSHOW   20000
+    ERANGE   8.418 1000
+    VIEWCONE 0. 3.5
+    THETAP  0.0 0.0
+    AZM 180.000
+    CSCAT 1 15000 0.
+    FIXHEI  0.  0          // First interaction height & target (0. 0 for random)
+    TELESCOPE     -70.930E2    -52.070E2   16.00E2   12.50E2   # LST1
+    TELESCOPE     -35.270E2     66.140E2   16.00E2   12.50E2   # LST2
+    TELESCOPE      75.280E2     50.490E2   28.70E2   12.50E2   # LST3
+    TELESCOPE      30.910E2    -64.540E2   32.00E2   12.50E2   # LST4
+
+    end note
+}
+
+    rectangle "Simtel simulation" as SimtelBlock
+
+node "Input parameters Simtel" {
+    note left
+    Config used: 
+    Standard "LST_Advanced_Camera_Prod1_pmt" (without array_trigger_.. file)
+    In array_stereo regime: 
+    "LST_Advanced_Camera_Prod1_pmt" but with array_trigger_.. file from prod6
+    
+    Additional config params:
+    
+    mono_stereo:
+    NUM_TELESCOPES = 4
+    NO_STEREO_TRIGGER = 0
+    telescope_phi = 180
+    telescope_zenith_angle = 0
+    maximum_telescopes = 4
+    
+    stereo_stereo and array_stereo:
+    NUM_TELESCOPES = 4
+    "'#'"NO_STEREO_TRIGGER = 0
+    telescope_phi = 180
+    telescope_zenith_angle = 0
+    maximum_telescopes = 4
+    end note
+}
+    rectangle "Processing Event with ctapipe" as ProcessingEventBlock 
+
+    node "Input parameters ctapipe" {
+    note left
+    Processing per every triggered telescope. Applying only quality cuts on:
+    - min_pixel > 40
+    - completeness > 0.9
+    - containment > 0.5
+    end note
+}
+
+    CorsicaBlock --> SimtelBlock
+    SimtelBlock --> ProcessingEventBlock
+}
+
+
+note left of CorsicaBlock
+    Looks good
+end note
+
+note left of SimtelBlock
+    In stereo simulations we mainly trigger only 2 telescopes 
+    Moreover: it almost always only LST1 and LST4
+end note
+
+note left of ProcessingEventBlock
+    Nothing to say so far.
+end note
+
+
+@enduml

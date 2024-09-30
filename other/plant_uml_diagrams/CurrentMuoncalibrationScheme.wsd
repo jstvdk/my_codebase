@@ -1,0 +1,35 @@
+@startuml
+' header Current workflow for muon calibration
+
+' footer some footer
+
+title Current Muon Calibration workflow
+
+' caption This is caption
+
+' legend
+' The legend
+' end legend
+
+' start
+partition CalibrationStartPrerequisities {
+:DL0 muon tagged events input stream;
+:Launch Throughput Calibration Tool; 
+note left: Creates instance of MuonCalibrator \nand performs calibrate()
+}
+partition CalibrationProcess {
+: CameraCalibrator() ;
+note left: Perform the full camera calibration \nfrom R1/DL0 to DL1.
+: ImageProcessor();
+note left: Takes DL1/Image data and \ncleans and parametrizes the images \ninto DL1/parameters
+: MuonProcessor() ;
+note left: Takes cleaned images and \nextracts muon rings \n(ring fitting + intensity fitting).
+: Fill table with appropriate values ;
+note left: **Fields in the table:** \noptical_throughput_coefficient \noptical_throughput_coefficient_std \nvalidity_start \nvalidity_end \nobs_id \nmethod \ntel_id
+: Table is stored in DB (**need to double check its realisation**) ;
+}
+' stop
+
+
+
+@enduml

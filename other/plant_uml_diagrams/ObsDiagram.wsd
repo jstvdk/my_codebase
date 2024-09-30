@@ -1,0 +1,25 @@
+@startuml
+(*) --> [Observation] "Raw Data (R1 level), up to 10 kHz"
+
+if "data stream (R1 level)" then
+        --> [R1 data] "Data Volume Reduction (DVR)"
+        --> [R1 data] "Disk"
+
+        '-right-> (*)
+else
+        ->[Muon tagging (R1)] "Muon candidates 10 - 20 Hz"
+       
+        --> [R1 data] "Without DVR"
+  
+        --> [R1 data] "Disk"
+
+        --> [DL1 data] "Fitting of muons"
+
+
+endif
+
+
+@enduml
+
+
+
