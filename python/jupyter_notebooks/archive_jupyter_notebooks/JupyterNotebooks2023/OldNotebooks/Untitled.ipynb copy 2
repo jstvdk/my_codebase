@@ -1,0 +1,547 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "f01822cd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "1\n",
+      "NO\n"
+     ]
+    },
+    {
+     "ename": "NameError",
+     "evalue": "name 'last_num' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-19-09879a486240>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     12\u001b[0m         \u001b[0;32mbreak\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 14\u001b[0;31m \u001b[0;32mif\u001b[0m \u001b[0mnumber\u001b[0m \u001b[0;34m!=\u001b[0m \u001b[0mlast_num\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     15\u001b[0m     \u001b[0mcheck\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     16\u001b[0m \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'last_num' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "number = int(input())\n",
+    "check = 1 \n",
+    "while number != 0:\n",
+    "    print(number)\n",
+    "    if number%10 == number//10%10:\n",
+    "        last_num = number%10\n",
+    "        number = number // 10\n",
+    "    else:\n",
+    "        check = 0\n",
+    "        print(\"NO\")\n",
+    "        break\n",
+    "        \n",
+    "if number != last_num:\n",
+    "    check = 0\n",
+    "else:\n",
+    "    check = 1\n",
+    "\n",
+    "if check == 1:\n",
+    "    print(\"YES\")\n",
+    "else:\n",
+    "    print(\"NO\")\n",
+    "\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "24ba8a30",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "NO\n",
+      "[2, 1, 1, 1, 1, 1, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = int(input())\n",
+    "digits = []\n",
+    "check = True\n",
+    "\n",
+    "while num != 0:\n",
+    "    digits.append(num%10)\n",
+    "    num = num//10\n",
+    "\n",
+    "for i in range(len(digits)-1):\n",
+    "    if digits[i] == digits[i+1]:\n",
+    "        continue\n",
+    "    else:\n",
+    "        check = False\n",
+    "        break\n",
+    "        \n",
+    "if check: \n",
+    "    print(\"YES\")\n",
+    "else: \n",
+    "    print(\"NO\")\n",
+    "\n",
+    "print(digits)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "602f6c31",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "num = 5432"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "56b3278d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "1//10"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "104ac8c1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import sys\n",
+    "import math\n",
+    "\n",
+    "message = 'C'\n",
+    "\n",
+    "#print(ord(message))\n",
+    "#print(bin(ord(message))[2:])\n",
+    "message = 'CC'\n",
+    "bin_chars = []\n",
+    "for i in message:\n",
+    "    bin_chars.append(bin(ord(i))[2:])\n",
+    "\n",
+    "#print(bin_chars)\n",
+    "symb = '0'\n",
+    "count = 0\n",
+    "\n",
+    "\n",
+    "result_str = []\n",
+    "\n",
+    "bin_chars[0][2:].find('0')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "id": "150e9019",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 72,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "check = 1.5\n",
+    "type(check) == int\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "id": "40fe6309",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 74,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "isinstance(1,int)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "id": "5bf060ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1, 2], [2, 4]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#multiplication table\n",
+    "N = 2\n",
+    "result = []\n",
+    "for i in range(1,N+1):\n",
+    "    arr = []\n",
+    "    for j in range(1, N+1):\n",
+    "        arr.append(i*j)\n",
+    "    result.append(arr)\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "947644ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "IndentationError",
+     "evalue": "expected an indented block (<ipython-input-29-26cd412f1870>, line 11)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-29-26cd412f1870>\"\u001b[0;36m, line \u001b[0;32m11\u001b[0m\n\u001b[0;31m    print(result)\u001b[0m\n\u001b[0m                 ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m expected an indented block\n"
+     ]
+    }
+   ],
+   "source": [
+    "#unique in order\n",
+    "test = list('AABBBBCCCAAAAAAGGG')\n",
+    "result = []\n",
+    "for i,j in enumarate(test):\n",
+    "    k = 0\n",
+    "    counter = j\n",
+    "    while k == i:\n",
+    "        \n",
+    "        \n",
+    "        \n",
+    "print(result)\n",
+    "fin_result = []\n",
+    "\n",
+    "for i in test:\n",
+    "    if result.count(i)\n",
+    "    \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b414adac",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "35028642",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "test1 = list('AAVVVDDDDAAAA')\n",
+    "test1.remove('A')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "id": "ae56b1d3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['K']"
+      ]
+     },
+     "execution_count": 106,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "test2 = list('K')\n",
+    "test2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "4b54f9ad",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "test1 = list('AAVVVDDDDAAAA')\n",
+    "test_res = [test1[0]]\n",
+    "for i in range(1,len(test1)):\n",
+    "    if test1[i] == test_res[-1]:\n",
+    "        continue\n",
+    "    else:\n",
+    "        test_res.append(test1[i])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "049f405b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'ab'"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = ['a','b']\n",
+    "''.join(s)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "e8cbf339",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['1000011', '1000011']\n"
+     ]
+    }
+   ],
+   "source": [
+    "message = 'CC'\n",
+    "bin_chars = []\n",
+    "for i in message:\n",
+    "    bin_chars.append(bin(ord(i))[2:])\n",
+    "\n",
+    "#print(bin_chars)\n",
+    "symb = '0'\n",
+    "count = 0\n",
+    "\n",
+    "\n",
+    "result_str = []\n",
+    "\n",
+    "print(bin_chars)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "id": "3867a0be",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "0\n",
+      "0\n",
+      "0\n",
+      "0\n",
+      "1\n",
+      "1\n",
+      "0 0 00 0000 0 00\n"
+     ]
+    }
+   ],
+   "source": [
+    "test_str = '1000011'\n",
+    "result = []\n",
+    "flag = -1\n",
+    "\n",
+    "for i in test_str:\n",
+    "    print(i)\n",
+    "    if i == '1':\n",
+    "        if flag != 1:\n",
+    "            flag = 1\n",
+    "            result.append(' 0 0')\n",
+    "        else:\n",
+    "            result.append('0')\n",
+    "    elif i == '0':\n",
+    "        if flag != 0:\n",
+    "            flag = 00\n",
+    "            result.append(' 00 0')\n",
+    "        else:\n",
+    "            result.append('0')\n",
+    "    \n",
+    "result[0] = result[0][1:]\n",
+    "fin_result = ''.join(result)        \n",
+    "print(fin_result)     \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "id": "bac17c91",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "raw_bin_chars =  ['1b100101', '1b1000011']\n",
+      "i =  0 j =  1b100101\n",
+      "i =  1 j =  1b1000011\n"
+     ]
+    }
+   ],
+   "source": [
+    "bin_chars = ['1b100101', '1b1000011']\n",
+    "print('raw_bin_chars = ', bin_chars)\n",
+    "\n",
+    "\n",
+    "for i,j in enumerate(bin_chars):\n",
+    "    print('i = ', i, 'j = ', j)\n",
+    "    #if len(i) <= 8:\n",
+    "    #    bin_chars[j].replace('b','')\n",
+    "    #else:\n",
+    "    #    bin_chars[j] = bin_chars[j][2:]\n",
+    "        \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "id": "078fc62b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "test_char = '1123', 'fdsf'\n",
+    "type(test_char)\n",
+    "\n",
+    "test_str = '123'\n",
+    "\n",
+    "if type(test_char) == list:\n",
+    "    print('1')\n",
+    "elif type(test_str) == str:\n",
+    "    print('2')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "id": "10c890de",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "*\n",
+      " **\n",
+      "  ***\n",
+      "   ****\n",
+      "    *****\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = 5\n",
+    "\n",
+    "for i in range(1,num+1): print(' '*(i-1)+'*'*i)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a0c54650",
+   "metadata": {},
+   "source": [
+    "# "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

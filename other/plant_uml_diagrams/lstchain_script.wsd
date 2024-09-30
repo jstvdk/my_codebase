@@ -1,0 +1,19 @@
+@startuml
+(*) --> [Input data stream] Disk
+
+        --> "Calibration from R1 to DL1"
+
+        --> "Pre-select potential muons among DL1 images"
+    
+        --> "Fitting pre-selected events"
+        
+        --> "Applying quality cuts to choose muon rings"
+       
+        '--> "Store optical efficiency"
+
+
+
+@enduml
+
+
+

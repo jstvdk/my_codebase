@@ -1,0 +1,133 @@
+EventSource:
+  input_url : "/path/to/the/input/event/file"
+  max_events: 10000
+  allowed_tels: [1]
+
+MuonCalibrator:
+  min_pe_per_pixel : 10
+  min_pix_fraction_after_cleaning : 0.1
+  write_muon_to_file : "../"
+  image_extractor_for_muons : "GlobalPeakWindowSum"
+
+ThroughputCalibrationProducer:
+  output: "optical_throughput.ecsv"
+  update: True
+  write_db: False
+  db_user: "__db_user__"
+  db_pass: "__db_pass__"
+  db_name: "__db_name__"
+  db_host: "__db_host__"
+  db_port: null
+  log_level: 0
+
+AlternativeThroughputCalibrator: 
+  telescope_ids : [1]
+
+MuonProcessor:
+  completeness_threshold : 30
+  ratio_width : 1.5
+  pedestal : 1.1
+
+MuonIntensityFitter : 
+  hole_radius_m : [["type", "LST_*", 0.308]]
+  spe_width : 0.5
+  min_lambda_m : 0.0000003
+  max_lambda_m : 0.0000006
+  oversampling : 3
+
+ImageParameterQuery : 
+  quality_criteria : [
+      ["min_pixels", "dl1_params.morphology.n_pixels > 100"],
+      ["min_intensity", "dl1_params.hillas.intensity > 500"]
+    ]
+RingQuery : 
+  quality_criteria : [["radius_not_nan", "np.isfinite(ring.radius.value)"], ["min_pixels", "np.count_nonzero(mask) > 50"],["ring_containment", "parameters.containment > 0.5"]]
+
+CameraCalibrator:
+  data_volume_reducer_type: "NullDataVolumeReducer"
+  image_extractor_type: "NeighborPeakWindowSum"
+  invalid_pixel_handler_type: "NeighborAverage"
+  apply_waveform_time_shift: False
+  apply_peak_time_shift: True
+
+GlobalPeakWindowSum:
+  window_width: 7
+  window_shift: 3
+  apply_integration_correction: True
+  pixel_fraction: 1
+
+
+NeighborPeakWindowSum:
+  window_width: 7
+  window_shift: 3 
+  apply_integration_correction: True
+  local_weight: 0
+
+BaselineSubtractedNeighborPeakWindowSum: 
+  baseline_start: 0
+  baseline_end: 10
+
+FixedWindowSum:
+  peak_index: 0
+  window_width: 7
+  window_shift: 0
+  apply_integration_correction: True
+
+LocalPeakWindowSum:
+  window_width: 7
+  window_shift: 3
+  apply_integration_correction: True
+
+SlidingWindowMaxSum:
+  window_width: 7
+  apply_integration_correction: True
+
+TwoPassWindowSum:
+  core_threshold: [["type", "*", 6.0],["type", "LST*", 6.0],["type", "MST*", 8.0],["type", "SST*", 4.0]]
+  disable_second_pass: False
+  apply_integration_correction: True
+  invalid_pixel_handler_type: True
+
+FlashCamExtractor:
+  upsampling: 4
+  window_width: 7
+  window_shift: 3
+  apply_integration_correction: True
+  local_weight: 0
+  effective_time_profile_std: 2
+  neighbour_sum_clipping: 5
+  leading_edge_timing: True
+  leading_edge_rel_descend_limit: 0.05
+
+TailcutsImageCleaner:
+  picture_threshold_pe : 10
+  boundary_threshold_pe : 5
+  min_picture_neighbors :  2
+  keep_isolated_pixels : False
+
+TimeConstrainedImageCleaner:
+  time_limit_core_ns: 4.5
+  time_limit_boundary_ns: 1.5
+
+ImageProcessor: 
+  image_cleaner_type : "TailcutsImageCleaner"
+  use_telescope_frame : True
+  apply_image_modifier : False
+
+ImageQualityQuery:
+  quality_criteria : [["size_greater_0", "image.sum() > 0"]]
+
+ImageModifier:
+    psf_smear_factor : 0
+    noise_transition_charge : 0
+    noise_bias_dim_pixels : 0
+    noise_level_dim_pixels : 0
+    noise_level_bright_pixels : 0
+    noise_correct_bias : 0
+    rng_seed : 1337
+
+
+
+
+
+

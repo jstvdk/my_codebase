@@ -1,0 +1,147 @@
+@startuml
+skinparam monochrome true
+
+
+    
+package "Simulation Chain for 4LST muons" {
+    rectangle "Corsica simulation" as CorsicaBlock
+
+node "Encountered problems Corsika" {
+    note left
+    This is a lot of text.
+    It can span multiple lines.
+    You can include detailed information here.
+    end note
+}
+    rectangle "Simtel simulation" as SimpleBlock
+
+node "Encountered problems Simtel" {
+    note left
+    This is a lot of text.
+    It can span multiple lines.
+    You can include detailed information here.
+    end note
+}
+    rectangle "Processing Event with ctapipe" as ProcessingEventBlock
+
+node "Encountere problems ctapipe" {
+    note left
+    This is a lot of text.
+    It can span multiple lines.
+    You can include detailed information here.
+    end note
+}
+
+    CorsicaBlock --> SimpleBlock
+    SimpleBlock --> ProcessingEventBlock
+}
+
+
+package "Parameters" {
+    rectangle "Corsica simulation" as CorsicaBlock
+    rectangle "Simtel simulation" as SimpleBlock
+    rectangle "Processing Event with ctapipe" as ProcessingEventBlock
+
+    rectangle "Parameters for Corsica" as CorsicaParamsBlock
+    rectangle "Parameters for Simtel" as SimpleParamsBlock
+    rectangle "Parameters for Processing Event" as ProcessingEventParamsBlock
+
+    CorsicaParamsBlock -.-> CorsicaBlock : Input Parameters
+    SimpleParamsBlock -.-> SimpleBlock : Input Parameters
+
+
+    ProcessingEventParamsBlock -.-> ProcessingEventBlock : Input Parameters
+
+
+
+}
+
+note left of "Corsika simulation"
+    This is a comment for Block 1.
+    It can span multiple lines.
+end note
+
+
+
+
+
+NEW ONE
+
+@startuml
+skinparam monochrome true
+
+
+    
+package "Simulation Chain for 4LST muons" {
+
+    rectangle "Corsica simulation" as CorsicaBlock {
+
+node "Input parameters Corsika" {
+    note left
+        NSHOW   20000
+        ERANGE   8.418 1000
+        VIEWCONE 0. 3.5
+        THETAP  0.0 0.0
+        AZM 180.000
+        CSCAT 1 15000 0.
+        FIXHEI  0.  0          // First interaction height & target (0. 0 for random)
+        TELESCOPE     -70.930E2    -52.070E2   16.00E2   12.50E2   # LST1
+        TELESCOPE     -35.270E2     66.140E2   16.00E2   12.50E2   # LST2
+        TELESCOPE      75.280E2     50.490E2   28.70E2   12.50E2   # LST3
+        TELESCOPE      30.910E2    -64.540E2   32.00E2   12.50E2   # LST4
+    end note
+}
+    }
+
+
+
+
+    rectangle "Simtel simulation" as SimtelBlock {
+
+node "Input parameters Simtel" {
+    note left
+    Config used: 
+    Standard "LST_Advanced_Camera_Prod1_pmt" (without array_trigger_.. file)
+    In array_stereo regime: 
+    "LST_Advanced_Camera_Prod1_pmt" but with array_trigger_.. file from prod6
+
+
+    end note
+}
+    }
+
+
+    rectangle "Processing Event with ctapipe" as ProcessingEventBlock {
+
+    node "Input parameters ctapipe" {
+        note left
+        Processing per every triggered telescope. Applying only quality cuts on:
+        - min_pixel > 40
+        - completeness > 0.9
+        - containment > 0.5
+        end note
+        }
+    }
+
+    CorsicaBlock --> SimtelBlock
+    SimtelBlock --> ProcessingEventBlock
+}
+
+
+note left of CorsicaBlock
+    Looks good
+end note
+
+note left of SimtelBlock
+    In stereo simulations we mainly trigger only 2 telescopes 
+    Moreover: it almost always only LST1 and LST4
+end note
+
+note left of ProcessingEventBlock
+    Nothing to say so far.
+end note
+
+
+@enduml
+
+@enduml

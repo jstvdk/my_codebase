@@ -1,0 +1,21 @@
+@startuml
+(*) --> "Raw Data, 3.1 kHz"
+
+if "data stream" then
+        --> "PAQ"
+        --> [Data Volume Reduction] "Disk"
+        '-right-> (*)
+else
+        -> [muon flagging] "Muon candidate 39 / 62 Hz"
+       
+        --> "Calibrate Data"
+
+        --> "Disk."
+
+endif
+
+
+@enduml
+
+
+

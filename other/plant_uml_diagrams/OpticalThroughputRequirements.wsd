@@ -1,0 +1,72 @@
+@startuml
+
+' header Level B and corresponding level C requirements for Muon Calibrations
+
+title Level-B and Level-C requirements for Muon Calibrations
+
+package "2310" {
+node "B-DPPS-2310 \nThe DPPS shall be able to appropriately compensate \nfor changes in optical throughput \nof up to 5% at the individual telescope and \nsub-array level with respect to current simulation models \n" {
+    node "C-CALP-0330 \nOptical throughput uncertainties \n \nThe CalibPipe shall provide \nan estimate of average \nstatistical and systematic \nuncertainties of the optical \nthroughput calculations."
+    node "C-CALP-0310 \nMuon Parameters Calculation \n \nThe CalibPipe shall be able \nto perform image cleaning and \nmuon ring fitting necessary \nto derive optical throughput for \nall telescopes." 
+}
+}
+package  "2235" {
+node "B-DPPS-2235 \nThe DPPS shall compute optical throughput corrections \nin the Category-B analysis \n" {
+    node "C-CALP-0350 \nPreservation of Optical Throughput \n \nThe CalibPipe shall preserve \nthe calculated optical throughput \ntogether with its uncertainty estimation \nfor each telescope in the CalibPipe DB."
+    node "C-CALP-0340 \nCalculation of Optical Throughput \n \nThe CalibPipe shall compute \nthe total absolute optical \nthroughput for each telescope \ntogether with its uncertainty estimation." 
+}
+}
+
+package  "3540" {
+node "**B-DPPS-3540** \nThe DPPS shall provide calibration tools enabling the end‐to‐end \n\
+optical throughput for each telescope as a whole (including mirror and camera) \n\
+within an uncertainty of less than 5% rms \n" {
+    node "No appropriate level-C, but C-CALP-0340 can be transfered here or this requirement can be deleted"
+}
+}
+
+package "2330" {
+node "**B-DPPS-2330 Optical Throughput** \nThe DPPS shall derive, from muon image parameters, corrections of the optical throughput to better than 5% RMS."{
+    node "We don't need this requirement, because it is already mentioned in 2310 and 2235"
+}
+}
+
+package "Other" {
+    node "Additional requirements" {
+
+        node "B-DPPS-3701 Non‐Spherical Reflectors for Muon Analysis"
+        
+        node "B-DPPS-3702 Plate‐Scale Calibrations for Muon Analysis"
+
+        node "B-DPPS-3703 Finite Camera Focus for Muon Analysis"
+
+        node "B-DPPS-3704 Geomagnetic Field Effects for Muon Analysis"
+
+        node "B-DPPS-3705 Shadowing and Hole Awareness for Muon Analysis"
+
+        node "B-DPPS-3706 Detail of Telescope Description for Muon Simulations (Is this to CalibPipe or SimPipe?)"
+
+        node "B-DPPS-3707 Extinction of Muon Cherenkov Light by Molecules in the Air"
+
+        node "B-DPPS-3708 Extinction of Muon Cherenkov Light by Aerosol in the Air"
+
+        node "B-DPPS-3709 Incidence‐Angle Dependencies of Telescope Camera for Muon Analysis"
+
+        node "B-DPPS-3710 Misaligned Mirrors for Muon Analysis"
+    }
+}
+
+
+'B-DPPS-2310 -[hidden]-> B-DPPS-2235 : hidden
+
+2310 -[hidden]- 2235
+
+2235 -[hidden]- 3540
+
+3540 -[hidden]- 2330
+
+2330 -[hidden]- Other
+
+
+
+@enduml

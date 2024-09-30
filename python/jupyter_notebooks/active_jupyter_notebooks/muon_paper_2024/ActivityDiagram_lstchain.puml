@@ -1,0 +1,92 @@
+@startuml
+start
+
+:**Initialize r0_to_dl1**\n R0 waveforms, \n calibration files, \n pointing information;
+
+:**replace_config**()\n standard config,\n custom config;
+
+:**EventSource()**\n eventsource file,\n config;
+
+:for i, event in enumerate(source)\n Launching EventBuilder, and thats where all interesting happens: ;
+  :generator();
+
+    :**fill_from_cta_r1()**\n array_event,\n zfits_event;
+
+        :**reorder_pixel_status()**\n zfits_event.pixel_status,\n pixel_id_map,\n set_dvr_bits=not self.dvr_applied;
+
+      :**fill_lst_from_ctar1**()\n zfits_event;
+
+      :**fill_mon_container()**;
+
+      :**fill_pointing_info()**;
+
+      :**updated_first_capacitors()**\n array_event;
+
+      :**get_first_capacitors_for_pixels()** \n first capasitor id;
+
+      :**apply_drs4_corrections()**\n array_event;
+
+      :**subtract_pedestal_gain_selected()**\n event,\n tel_id;
+
+      :**_get_drs4_pedestal_data()**\n filepath;
+
+      :**time_lapse_corr()**\n event_id,\n id;
+
+        :**apply_timelapse_correction_gain_selected()**\n waveform,\n local_clock_counter=lst.evt.local_clock_counter,\n first_capacitors=first_capacitors[self.tel_id],\n last_readout_time=self.last_readout_time[self.tel_id],\n expected_pixels_ids=lst.svc.pixel_ids,\n selected_gain_channel=event.r1.tel[self.tel_id].selected_gain_channel,\n run_id=run_id;
+
+        :**apply_timelapse_correction_pixel()** \n waveform,\n first_capacitor,\n time_now,\n last_readout_time;
+
+        :**update_last_readout_times()** \n local_clock_counter,\n first_capacitors,\n last_readout_time,\n expected_pixels_id;
+
+      :**subtract_spikes()**\n event_id,\n tel_id;
+
+        :**subtract_spikes_gain_selected()**\n waveform,\n first_capacitors,\n previous_first_capacitors,\n selected_gain_channel,\n run_id,\n spike_height;
+
+        :**Cutting 4 time samples**\n r1.waveform = r1.waveform[..., start:end];
+
+:**r1_calibrate()** \n event: LSTArrayEventContainer;
+
+:**convert_to_pe()**\n waveform,\n ctapipe.containers.WaveformCalibrationContainer;
+
+:**Removing of invalid pixels** \n r1.waveform[invalid_pixels[r1.selected_gain_channel, PIXEL_INDEX]] = 0.0;
+
+:**fill_time_correction()**\n event;
+
+:**get_drs4_time_correction()**\n tel_id,\n first_capacitor,\n selected_gain_channel;
+
+:**load_drs4_time_calibration_file_for_tel()**;
+
+:**calc_drs4_time_correction_gain_selected()**\n first_capacitors\n selected_gain_channel,\n self.fan[tel_id],\n self.fbn[tel_id];
+
+:**calc_fourier_time_correction()**\n first_capacitor,\n fan,\n fbn;
+
+:**r1_dl1_calibrator()** \n event;
+
+:**calibrate_dl0**();
+
+:**calibrate_dl1**()\n waveform,\n tel_id,\n selected_gain_channel;
+
+:**ImageExtractor()**\n waveforms,\n tel_id=tel_id,\n selected_gain_channel=selected_gain_channel,\n broken_pixels=broken_pixels;
+
+:**Correct non-integer remainder of the shift if givend:** \n dl1.peak_time -= time_shift;
+
+:**Calibrate extracted charge:**\n dl1.image *= dl1_calib.relative_factor / dl1_calib.absolute_factor;
+
+:**invalid_pixel_handler()**\n tel_id,\n dl1.image,\n dl1.peak_time,\n broken_pixels;
+
+:**taicuts_cleaning()**\n camera_geometry,\n image,\n picture_thresh=8,\n boundary_thresh=4,\n keep_isolated_pixels=False,\n min_number_picture_neighbors=2;
+
+:**apply_time_delta_cleaning()**\n camera_geometry,\n signal_pixels,\n peak_time,\n min_number_neighbors=1,\n time_limit=delta_time;
+
+:**apply_dynamic_cleaning()**\n image,\n signal_pixels,\n threshold_dynamic,\n n_dynamic;
+
+:**parametrize_image**()\n image=image,\n peak_time=peak_time,\n signal_pixels=signal_pixels,\n camera_geometry=camera_geometry,\n focal_length=optics.equivalent_focal_length,\n dl1_container=dl1_container;
+
+:**Now the Muon Analysis starts to produce .fits file**;
+          note right
+          It performs in different methods for data/sim
+          end note
+
+
+stop
+@enduml

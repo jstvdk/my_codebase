@@ -1,0 +1,15 @@
+@startuml
+(*) --> [Simtel file] Event
+        --> "if len(tels_with_trigger) > 1"
+    
+        --> [Calibrate from R1 to DL1] "Perform Muon Processing"
+        
+        --> "for every tel in tels_with_trigger"
+       
+        --> [Build image] "if ringwidth is not nan"
+
+        --> "Store optical efficiency"
+
+
+        
+@enduml

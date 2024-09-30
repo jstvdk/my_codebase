@@ -1,0 +1,21 @@
+EventSource:
+  input_url : "/path/to/the/input/event/file"
+  max_events: 10000
+  allowed_tels: [1]
+
+MuonCalibrator:
+  min_pe_per_pixel : 10
+  min_pix_fraction_after_cleaning : 0.1
+  write_muon_to_file : "../"
+  image_extractor_for_muons : "GlobalPeakWindowSum"
+
+ThroughputCalibrationProducer:
+  output: "optical_throughput.ecsv"
+  update: True
+  write_db: False
+  db_user: "__db_user__"
+  db_pass: "__db_pass__"
+  db_name: "__db_name__"
+  db_host: "__db_host__"
+  db_port: null
+  log_level: 0

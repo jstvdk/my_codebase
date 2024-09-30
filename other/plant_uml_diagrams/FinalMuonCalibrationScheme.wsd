@@ -1,0 +1,77 @@
+@startuml
+' header Current workflow for muon calibration
+
+' footer some footer
+
+title Muon Calibration Workflow
+
+partition CalibrationStartPrerequisities {
+:DL0 muon tagged events input stream;
+note left: need to agreed on interface with input stream \n(or it will be need later)
+
+:Launch Throughput Calibration Tool; 
+note left: Input parameters: \n-file with events \n-config
+}
+
+partition CURRENTCalibrationProcess {
+: CameraCalibrator() ;
+note left: Performs the full camera calibration \nfrom R1/DL0 to DL1.
+
+: ImageProcessor();
+note left: Takes DL1/Image data and \ncleans and parametrizes the images \ninto DL1/parameters
+
+: MuonProcessor() ;
+note left: Takes cleaned images,extracts muon rings \n\
+and calculates optical efficiency.
+
+: Fill table with appropriate values ;
+note left: **Fields in the table:** \noptical_throughput_coefficient (double) \n\
+optical_throughput_coefficient_std (double) \n\
+validity_start (date) \nvalidity_end (date) \n\
+obs_id (integer) \n\
+method (string) \n\
+tel_id (integer)
+
+: Table is stored in DB (**need to double check its realisation**) ;
+}
+
+partition TODO {
+
+'-[#green,dotted]->
+'#lightgreen: Not implemented yet: ;
+
+-[#green,dotted]->
+#lightgreen: It should provide average \nstatistical and systematic unsertainties ;
+note left: \nCurrently we are providing only standard deviation, \n\
+-Is it enough, or do we need to provide \n\
+some more complex way to estimate uncertainty?
+
+-[#green,dotted]->
+#lightgreen: Compare optical throughput with simulations ;
+note left: Open Questions: \n -Where to take 'current' simulations (interface) \n\
+ -How long the simulation is considered 'current', \n\
+i.e. frequency of refreshing the simulation data \n\
+ -Should we use simulated data to calculate efficiency \n\
+from them or they will provide us with some \nlook-up tables \n\
+
+-[#green,dotted]->
+#lightgreen: Calculate correction factor and store it in DB ;
+note left: Correction factor is the relation \n\
+between two values e1/e2, where: \n\
+- e1 is Muon efficiency from simulations \n\
+- e2 is Muon efficiency from data \n\
+**Missing fields in the table:** \ncorrection factor \n\
+accuracy of correction factor (should be <5%) \n\
+?combined syst+stat uncertainty
+
+-[#green,dotted]->
+#lightgreen: Take into account additional effects in muon analysis? ;
+note left: B-DPPS requirements 3700-3710
+
+}
+
+
+
+
+
+@enduml

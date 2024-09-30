@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "1.8.1",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "program": "/Users/vdk/muons2024/data/17043/real_data/lstchain_data_r0_to_dl1.py",
+            "purpose": ["debug-test"],
+            "request": "launch",
+            "args": [
+              "--input-file", "/Users/vdk/muons2024/data/17043/real_data/LST-1.1.Run17043.0020.fits.fz",
+              "--output-dir", "/Users/vdk/muons2024/data/17043/real_data",
+              "--pedestal-file", "/Users/vdk/muons2024/data/17043/real_data/drs4_pedestal.Run17016.0000.h5",
+              "--calibration-file", "/Users/vdk/muons2024/data/17043/real_data/calibration_filters_52.Run17017.0000.h5",
+              "--time-calibration-file", "/Users/vdk/muons2024/data/17043/real_data/time_calibration.Run15253.0000.h5",
+              "--pointing-file", "/Users/vdk/muons2024/data/17043/real_data/DrivePosition_log_20240310.txt",
+              "--systematic-correction-file", "/Users/vdk/muons2024/data/17043/real_data/calibration_scan_fit_20230410.0000.h5",
+              "--config", "/Users/vdk/muons2024/data/17043/real_data/lstchain_standard_v0.10_no_heuristic_ff.json"
+            ],
+            "console": "integratedTerminal",
+            "pythonPath": "/Users/vdk/mambaforge/envs/lstchain-env/bin/python",
+            "env": {
+                "PYTHONPATH": "/Users/vdk/mambaforge/envs/lstchain-env/lib/python3.11/site-packages/:/Users/vdk/Software/ctasoft/cta-lstchain"
+            },
+            "justMyCode": false
+        }
+    ]
+}
