@@ -1,0 +1,256 @@
+workflow:
+    rules:
+        - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+          when: never
+        - when: always
+
+stages:
+    - static-checks
+    - test
+    - sonarqube
+    - doc
+    - deploy
+
+default:
+    image: python:3.12
+
+variables:
+    CTAPIPE_VERSION: 'latest'
+    TEST_REPORT_PATH : 'doc/source/automated-test-report'
+#
+# Anchors definition
+#
+.env_template: &env_setup
+    before_script:
+        - apt-get install git wget
+        - pip install pylint pylint-exit anybadge
+        - |-
+            if [ "$CTAPIPE_VERSION" = "nightly" ]; then
+              git clone https://github.com/cta-observatory/ctapipe.git /opt/ctapipe
+              cd /opt/ctapipe && python -m pip install -e . && cd -
+            fi
+
+.unittest_template:
+    stage: test
+    needs: []
+    <<: *env_setup
+    script:
+        - pip install .[test]
+        - >
+          echo "url: https://cds.climate.copernicus.eu/api/v2" > ~/.cdsapirc
+        - >
+          echo "key: $CDS_KEY" >> ~/.cdsapirc
+        - >
+          echo "verify: 0" >> ~/.cdsapirc
+        - wget -O ./src/calibpipe/tests/data/throughput/simtel_run501_muon_telescope_transmission_0.8.simtel.gz $MUON_TEST_DATA
+        - wget -O ./src/calibpipe/tests/data/throughput/Dummy100_NSB.simtel.gz $DUMMY_NSB_100
+        - pytest -v --cov=calibpipe --junitxml=report.xml -m "not gdas and not db"
+    artifacts:
+        when: always
+        reports:
+            junit: report.xml
+        paths:
+            - report.xml
+
+#
+# Jobs
+#
+pylint:
+    stage: static-checks
+    needs: []
+    <<: *env_setup
+    script:
+        - pip install .[test]
+        - mkdir ./pylint
+        - pylint ./src/calibpipe/ | tee ./pylint/pylint.log || pylint-exit $?
+        - PYLINT_SCORE=$(sed -n 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p' ./pylint/pylint.log)
+        - anybadge --label=Pylint --file=pylint/pylint.svg --value=$PYLINT_SCORE 2=red 4=orange 8=yellow 10=green
+        - echo "Pylint score is $PYLINT_SCORE"
+    artifacts:
+        paths:
+            - ./pylint/
+
+unittests:
+    parallel:
+        matrix:
+        - PYTHON_VERSION: ["3.10", "3.11", "3.12", latest]
+          CTAPIPE_VERSION: [nightly, latest]
+    image: python:$PYTHON_VERSION
+    rules:
+        - if: '$CTAPIPE_VERSION == "nightly"'
+          allow_failure: true
+        - if: '$CTAPIPE_VERSION'
+          allow_failure: false
+    extends: [.unittest_template]
+
+coverage:
+    stage: test
+    needs: []
+    <<: *env_setup
+    services:
+        - postgres:latest
+    variables:
+        POSTGRES_DB: TEST_CALIBPIPE_DB
+        POSTGRES_USER: TEST_CALIBPIPE_DB_USER
+        POSTGRES_PASSWORD: DUMMY_PSWRD
+        POSTGRES_HOST_AUTH_METHOD: trust
+    script:
+        - pip install -e .[test]
+        - pip install coverage-badge
+        - echo -n $RDAMS_TOKEN > rdams_token.txt
+        - >
+          echo "url: https://cds.climate.copernicus.eu/api/v2" > ~/.cdsapirc
+        - >
+          echo "key: $CDS_KEY" >> ~/.cdsapirc
+        - >
+          echo "verify: 0" >> ~/.cdsapirc
+        - upload_observatory_data -c ./doc/source/examples/utils/configuration/upload_observatory_data_db.yaml			
+        - database_initialization -c ./doc/source/examples/utils/configuration/db_init_config.yaml
+        - upload_atmospheric_model_data -c ./doc/source/examples/utils/configuration/upload_atmospheric_model_data_db_winter.yaml
+        - upload_atmospheric_model_data -c ./doc/source/examples/utils/configuration/upload_atmospheric_model_data_db_summer.yaml
+        - upload_atmospheric_model_data -c ./doc/source/examples/utils/configuration/upload_atmospheric_model_data_db_intermediate.yaml	
+        - wget -O ./src/calibpipe/tests/data/throughput/simtel_run501_muon_telescope_transmission_0.8.simtel.gz $MUON_TEST_DATA
+        - wget -O ./src/calibpipe/tests/data/throughput/Dummy100_NSB.simtel.gz $DUMMY_NSB_100
+        - pytest -v --cov=calibpipe --junitxml=report.xml  -m "not observatory" --cov-report=xml:coverage.xml
+        - coverage-badge
+    coverage: '/TOTAL.+ ([0-9]{1,3}%)/'
+    artifacts:
+        when: always
+        reports:
+            junit: report.xml
+        paths:
+            - coverage.xml
+
+integration:
+    parallel:
+        matrix:
+        - MODULE: 'atmosphere'
+          WORKFLOW_ID: ['12', '13', '17']
+        - MODULE: 'throughput'
+          WORKFLOW_ID: ['22']
+    stage: test
+    artifacts:
+      when: always
+      paths:
+        - ./src/calibpipe/tests/workflows/$MODULE/*.ecsv
+        - ./src/calibpipe/tests/workflows/$MODULE/*.log
+    services:
+        - postgres:latest
+    variables:
+        POSTGRES_DB: TEST_CALIBPIPE_DB
+        POSTGRES_USER: TEST_CALIBPIPE_DB_USER
+        POSTGRES_PASSWORD: DUMMY_PSWRD
+        POSTGRES_HOST_AUTH_METHOD: trust
+    
+    needs: [pylint, unittests, coverage]
+    <<: *env_setup
+    script:
+        - pip install .[test]
+        - echo -n $RDAMS_TOKEN > rdams_token.txt
+        - >
+          echo "url: https://cds.climate.copernicus.eu/api/v2" > ~/.cdsapirc
+        - >
+          echo "key: $CDS_KEY" >> ~/.cdsapirc
+        - >
+          echo "verify: 0" >> ~/.cdsapirc
+        - cp ~/.cdsapirc ./
+        - upload_observatory_data -c ./doc/source/examples/utils/configuration/upload_observatory_data_db.yaml
+        - database_initialization -c ./doc/source/examples/utils/configuration/db_init_config.yaml
+        - upload_atmospheric_model_data -c ./doc/source/examples/utils/configuration/upload_atmospheric_model_data_db_winter.yaml
+        - upload_atmospheric_model_data -c ./doc/source/examples/utils/configuration/upload_atmospheric_model_data_db_summer.yaml
+        - upload_atmospheric_model_data -c ./doc/source/examples/utils/configuration/upload_atmospheric_model_data_db_intermediate.yaml
+        - wget -O ./src/calibpipe/tests/data/throughput/simtel_run501_muon_telescope_transmission_0.8.simtel.gz $MUON_TEST_DATA
+        - cd ./src/calibpipe/tests/workflows/$MODULE
+        - set +o pipefail
+        - cwltool dpps-uc-120-$WORKFLOW_ID.cwl dpps-uc-120-$WORKFLOW_ID.cfg > $WORKFLOW_ID.log 2>&1 || grep temporaryFail $WORKFLOW_ID.log
+        - set -o pipefail
+    only:
+        - merge_requests
+        - main
+
+sonarqube:
+    stage: sonarqube
+    needs:
+        - job: coverage
+          artifacts: true
+    image:
+        name: sonarsource/sonar-scanner-cli:latest
+        entrypoint: [""]
+    variables:
+        SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+        GIT_DEPTH: "0"
+
+    script:
+        - sonar-scanner -Dsonar.branch.name=${CI_COMMIT_BRANCH}
+
+predoc:
+    stage: doc
+    only:
+        - main
+        - tags
+    image:
+        name: minlag/mermaid-cli
+        entrypoint: [""]
+    variables:
+        MERMAID_SOURCE: "${CI_PROJECT_DIR}/doc/source/introduction/mermaid_files"
+        MERMAID_DESTINATION: "${CI_PROJECT_DIR}/doc/source/introduction/images"
+        MERMAID_MMDC: "/home/mermaidcli/node_modules/.bin/mmdc -p /puppeteer-config.json"
+    
+    script:
+          - for i in $(ls $MERMAID_SOURCE); do $MERMAID_MMDC -i $MERMAID_SOURCE/$i -o $MERMAID_DESTINATION/${i::-4}.png; done
+
+    artifacts:
+      paths:
+         - $MERMAID_DESTINATION/*.png
+
+test-report:
+  stage: doc
+  image: texlive/texlive:latest 
+  before_script:
+    - git clone -b automated-test-reports https://gitlab.cta-observatory.org/cta-computing/dpps/calibrationpipeline/documentation/test-report.git $TEST_REPORT_PATH # TODO: add specific tag
+    - cd $TEST_REPORT_PATH
+    - git submodule update --init --recursive
+  dependencies:
+    - coverage
+    - unittests
+    - pylint
+  script:
+    - python parse_scripts/coverage_parse_script.py /builds/cta-computing/dpps/calibrationpipeline/calibpipe/coverage.xml
+    - python parse_scripts/unittest_parse_script.py /builds/cta-computing/dpps/calibrationpipeline/calibpipe/report.xml
+    - python parse_scripts/pylint_parse_script.py /builds/cta-computing/dpps/calibrationpipeline/calibpipe/pylint/pylint.log
+    - make
+
+  artifacts:
+    paths:
+      - $TEST_REPORT_PATH/build/*.pdf
+
+pages:
+    stage: doc
+    needs: [pylint, unittests, coverage, integration, predoc]
+    only:
+        - main
+        - tags
+    <<: *env_setup
+    script:
+        - pip install .[doc]
+        - cd doc && ./update.sh
+        - cd -
+        - sphinx-build -b html doc/source public
+    artifacts:
+        paths:
+            - public
+
+pypi:
+    stage: deploy
+    needs: [pylint, unittests, coverage, integration]
+    <<: *env_setup
+    script:
+        - pip install -U twine build
+        - python -m build
+        - twine upload dist/*
+    only:
+        - tags
+    variables:
+        TWINE_NON_INTERACTIVE: 'true'
+        TWINE_USERNAME: __token__
+        TWINE_REPOSITORY: testpypi
