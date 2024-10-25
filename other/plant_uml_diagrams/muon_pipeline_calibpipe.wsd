@@ -1,0 +1,18 @@
+@startuml
+title Muon Data Processing Workflow
+
+start
+
+:Input Data Stream Processing;
+
+:Choosing Muon Candidates;
+
+:Extracting Muon Parameters;
+
+:Calculating Optical Efficiency;
+
+:Saving the Results to the External Database;
+
+stop
+
+@enduml
