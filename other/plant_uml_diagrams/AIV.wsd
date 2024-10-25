@@ -1,0 +1,15 @@
+@startuml
+start
+
+:DPPS Pipeline New Release;
+
+:Run Tests in GitLab CI/CD;
+
+:Parse Test Results with Python Scripts;
+
+:Compile LaTeX Reports;
+
+:Generate PDF Documentation;
+
+stop
+@enduml
