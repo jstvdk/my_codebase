@@ -1,0 +1,13 @@
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/sign_6.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/without_label_13.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/with_label_42.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/with_label_14.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/sign_5.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/without_label_22.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/sign_26.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/with_label_1.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/without_label_28.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/with_label_33.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/sign_11.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/sign_48.jpg
+/Users/vdk/Software/my_code/python/sofi/data/rad_photo_custom/imgs/with_label_35.jpg
