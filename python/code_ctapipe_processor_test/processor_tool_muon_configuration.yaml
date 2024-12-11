@@ -1,0 +1,94 @@
+DataWriter:
+  output_path: '/Users/vdk/Software/ctapipe_processor_test/test_images/dl1_muons101.h5'
+  write_muon_parameters: True
+  write_dl1_parameters: False
+  write_dl1_images: True
+  overwrite: True
+
+EventSource:
+  input_url: None
+  max_events: 1
+  allowed_tels: [1]
+
+MuonProcessor:
+  completeness_threshold: 30
+  ratio_width: 1.5
+  pedestal: 1.1
+  ring_integration_width: 0.25
+  outer_ring_width: 0.2
+
+MuonIntensityFitter:
+  hole_radius_m: [["type", "LST_*", 0.308]]
+  spe_width: 0.5
+  min_lambda_m: 0.0000003
+  max_lambda_m: 0.0000006
+  oversampling: 3
+
+ImageParameterQuery:
+  quality_criteria: [
+      ["min_pixels", "dl1_params.morphology.n_pixels > 100"],
+      ["min_intensity", "dl1_params.hillas.intensity > 500"]
+    ]
+
+RingQuery:
+  quality_criteria: [
+      ["radius_not_nan", "np.isfinite(ring.radius.value)"],
+      ["min_pixels", "np.count_nonzero(mask) > 50"],
+      ["ring_containment", "parameters.containment > 0.5"],
+      ["radial_distribution", "parameters.standard_dev < 0.1 * u.deg"],
+      ["excess_kurtosis", "parameters.excess_kurtosis < 1"],
+      ["min_ring_radius", "ring.radius > 0.8 * u.deg"],
+      ["max_ring_radius", "ring.radius < 1.5 * u.deg"],
+      ["ring_completeness", "parameters.completeness > 0.3"]
+    ]
+
+ImageProcessor:
+  image_cleaner_type: "TailcutsImageCleaner"
+  use_telescope_frame: True
+  apply_image_modifier: False
+
+ImageModifier:
+    psf_smear_factor : 0
+    noise_transition_charge : 0
+    noise_bias_dim_pixels : 0
+    noise_level_dim_pixels : 0
+    noise_level_bright_pixels : 0
+    noise_correct_bias : 0
+    rng_seed : 1337
+
+TailcutsImageCleaner:
+  picture_threshold_pe : 10
+  boundary_threshold_pe : 5
+  min_picture_neighbors :  2
+  keep_isolated_pixels : False
+
+TimeConstrainedImageCleaner:
+  time_limit_core_ns: 4.5
+  time_limit_boundary_ns: 1.5
+
+ImageQualityQuery:
+  quality_criteria: [["size_greater_0", "image.sum() > 0"]]
+
+CameraCalibrator:
+  data_volume_reducer_type: "NullDataVolumeReducer"
+  image_extractor_type: "GlobalPeakWindowSum"
+  invalid_pixel_handler_type: "NeighborAverage"
+  apply_waveform_time_shift: False
+  apply_peak_time_shift: True
+
+GlobalPeakWindowSum:
+  window_width: 8
+  window_shift: 4
+  apply_integration_correction: True
+  pixel_fraction: 1
+
+FlashCamExtractor:
+  upsampling: 4
+  window_width: 7
+  window_shift: 3
+  apply_integration_correction: True
+  local_weight: 0
+  effective_time_profile_std: 2
+  neighbour_sum_clipping: 5
+  leading_edge_timing: True
+  leading_edge_rel_descend_limit: 0.05
