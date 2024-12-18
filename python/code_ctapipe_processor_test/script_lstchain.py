@@ -32,7 +32,7 @@ def main():
         "--output-dir",
         "/Users/vdk/Software/ctapipe_processor_test/lstchain_comparison",
         "--config",
-        "/Users/vdk/Software/ctapipe_processor_test/lstchain_standard_config.json"
+        "/Users/vdk/Software/my_code/python/code_ctapipe_processor_test/lstchain_standard_config.json"
     ]
 
     # Define the second command as a list of arguments
