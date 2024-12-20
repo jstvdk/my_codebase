@@ -7,7 +7,7 @@ DataWriter:
 
 EventSource:
   input_url: None
-  max_events: 1
+  max_events: 200
   allowed_tels: [1]
 
 MuonProcessor:
