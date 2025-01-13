@@ -1,5 +1,29 @@
 [
     {
+        "Zip Code": "1051",
+        "Address": "1051 KE Amsterdam (Centrale Markt)",
+        "Price": 1725,
+        "Rooms": 4,
+        "Surface Area": 105,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1461500/jan-van-galenstraat/"
+    },
+    {
+        "Zip Code": "1097",
+        "Address": "1097 BC Amsterdam (Frankendael)",
+        "Price": 1800,
+        "Rooms": 3,
+        "Surface Area": 93,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479163/eerste-ringdijkstraat/"
+    },
+    {
+        "Zip Code": "1018",
+        "Address": "1018 LH Amsterdam (Oostelijke Eilanden/Kadijken)",
+        "Price": 1795,
+        "Rooms": 3,
+        "Surface Area": 79,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479529/oostenburgermiddenstraat/"
+    },
+    {
         "Zip Code": "1011",
         "Address": "1011 TC Amsterdam (Nieuwmarkt/Lastage)",
         "Price": 1876,
@@ -16,267 +40,123 @@
         "URL": "https://www.huurwoningen.com/huren/amsterdam/1450682/prins-hendrikkade/"
     },
     {
-        "Zip Code": "1018",
-        "Address": "1018 PM Amsterdam (Oostelijke Eilanden/Kadijken)",
-        "Price": 1660,
+        "Zip Code": "1096",
+        "Address": "1096 DS Amsterdam (Omval/Overamstel)",
+        "Price": 1900,
         "Rooms": 3,
-        "Surface Area": 70,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1471100/jan-kiststraat/"
+        "Surface Area": 81,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1478946/solitudolaan/"
     },
     {
-        "Zip Code": "1018",
-        "Address": "1018 PM Amsterdam (Oostelijke Eilanden/Kadijken)",
-        "Price": 1685,
+        "Zip Code": "1019",
+        "Address": "1019 BJ Amsterdam (Oostelijk Havengebied)",
+        "Price": 1810,
         "Rooms": 3,
-        "Surface Area": 67,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1470294/jan-kiststraat/"
+        "Surface Area": 115,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1458465/sumatrakade/"
     },
     {
-        "Zip Code": "1091",
-        "Address": "1091 CW Amsterdam (Weesperzijde)",
-        "Price": 2100,
+        "Zip Code": "1092",
+        "Address": "1092 GC Amsterdam (Transvaalbuurt)",
+        "Price": 1184,
         "Rooms": 3,
-        "Surface Area": 60,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1466820/blasiusstraat/"
+        "Surface Area": 58,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1478918/pretoriusstraat/"
     },
     {
-        "Zip Code": "1011",
-        "Address": "1011 HW Amsterdam (Nieuwmarkt/Lastage)",
-        "Price": 1650,
-        "Rooms": 2,
+        "Zip Code": "1076",
+        "Address": "1076 JH Amsterdam (Stadionbuurt)",
+        "Price": 1570,
+        "Rooms": 3,
+        "Surface Area": 74,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479278/van-tuyll-van-serooskerkenweg/"
+    },
+    {
+        "Zip Code": "1079",
+        "Address": "1079 EX Amsterdam (Scheldebuurt)",
+        "Price": 2000,
+        "Rooms": 3,
         "Surface Area": 65,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1455052/groenburgwal/"
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479263/lekstraat/"
     },
     {
-        "Zip Code": "1011",
-        "Address": "1011 MR Amsterdam",
-        "Price": 2300,
-        "Rooms": 2,
-        "Surface Area": 67,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-koerierstersplein-6/43717918/"
-    },
-    {
-        "Zip Code": "1011",
-        "Address": "1011 DG Amsterdam",
-        "Price": 2550,
-        "Rooms": 2,
-        "Surface Area": 78,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-willem-frederik-hermansstraat-143/43729476/"
-    },
-    {
-        "Zip Code": "1012",
-        "Address": "1012 NL Amsterdam (Burgwallen-Nieuwe Zijde)",
-        "Price": 2250,
-        "Rooms": 2,
-        "Surface Area": 73,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1470202/gravenstraat/"
-    },
-    {
-        "Zip Code": "1012",
-        "Address": "1012 PV Amsterdam (Burgwallen-Nieuwe Zijde)",
-        "Price": 2250,
-        "Rooms": 2,
-        "Surface Area": 60,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1465602/nieuwezijds-kolk/"
-    },
-    {
-        "Zip Code": "1012",
-        "Address": "1012 NC Amsterdam",
-        "Price": 2300,
-        "Rooms": 2,
-        "Surface Area": 64,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-sint-jacobsstraat-1-a/43706011/"
-    },
-    {
-        "Zip Code": "1074",
-        "Address": "1074 EM Amsterdam (Nieuwe Pijp)",
-        "Price": 2100,
-        "Rooms": 2,
-        "Surface Area": 67,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1452803/kuipersstraat/"
-    },
-    {
-        "Zip Code": "1074",
-        "Address": "1074 XA Amsterdam",
-        "Price": 2495,
-        "Rooms": 2,
-        "Surface Area": 51,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-van-ostadestraat-370-1/43725837/"
-    },
-    {
-        "Zip Code": "1018",
-        "Address": "1018 PM Amsterdam (Oostelijke Eilanden/Kadijken)",
-        "Price": 1325,
-        "Rooms": 2,
-        "Surface Area": 50,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1471096/jan-kiststraat/"
-    },
-    {
-        "Zip Code": "1018",
-        "Address": "1018 PM Amsterdam (Oostelijke Eilanden/Kadijken)",
-        "Price": 1375,
-        "Rooms": 2,
-        "Surface Area": 50,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1471099/jan-kiststraat/"
+        "Zip Code": "1079",
+        "Address": "1079 EX Amsterdam (Scheldebuurt)",
+        "Price": 2000,
+        "Rooms": 3,
+        "Surface Area": 65,
+        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/9eab5e0f/lekstraat"
     },
     {
         "Zip Code": "1018",
         "Address": "1018 LH Amsterdam (Oostelijke Eilanden/Kadijken)",
-        "Price": 1465,
+        "Price": 1660,
         "Rooms": 2,
-        "Surface Area": 60,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1471097/oostenburgermiddenstraat/"
+        "Surface Area": 80,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479629/oostenburgermiddenstraat/"
     },
     {
         "Zip Code": "1018",
-        "Address": "1018 GW Amsterdam (Weesperbuurt/Plantage)",
-        "Price": 1495,
-        "Rooms": 2,
-        "Surface Area": 63,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1454973/sarphatistraat/"
-    },
-    {
-        "Zip Code": "1018",
-        "Address": "1018 LL Amsterdam (Oostelijke Eilanden/Kadijken)",
-        "Price": 1503,
-        "Rooms": 2,
-        "Surface Area": 66,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1471098/oostenburgermiddenstraat/"
-    },
-    {
-        "Zip Code": "1018",
-        "Address": "1018 DH Amsterdam (Weesperbuurt/Plantage)",
-        "Price": 1580,
-        "Rooms": 2,
-        "Surface Area": 78,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1470049/plantage-middenlaan/"
-    },
-    {
-        "Zip Code": "1018",
-        "Address": "1018 GJ Amsterdam",
-        "Price": 2150,
-        "Rooms": 2,
-        "Surface Area": 65,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-sarphatistraat-209-4/43721226/"
-    },
-    {
-        "Zip Code": "1018",
-        "Address": "1018 LA Amsterdam",
-        "Price": 2295,
-        "Rooms": 2,
-        "Surface Area": 73,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-pieter-goosstraat-58/43713853/"
-    },
-    {
-        "Zip Code": "1017",
-        "Address": "1017 TP Amsterdam (De Weteringschans)",
-        "Price": 1995,
+        "Address": "1018 LH Amsterdam (Oostelijke Eilanden/Kadijken)",
+        "Price": 1900,
         "Rooms": 2,
         "Surface Area": 62,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1452800/eerste-weteringdwarsstraat/"
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479038/oostenburgermiddenstraat/"
     },
     {
-        "Zip Code": "1017",
-        "Address": "1017 TP Amsterdam (De Weteringschans)",
-        "Price": 1995,
+        "Zip Code": "1018",
+        "Address": "1018 KZ Amsterdam (Oostelijke Eilanden/Kadijken)",
+        "Price": 1950,
         "Rooms": 2,
-        "Surface Area": 62,
-        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/07d86ef1/eerste-weteringdwarsstraat"
+        "Surface Area": 43,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479315/willem-parelstraat/"
     },
     {
-        "Zip Code": "1017",
-        "Address": "1017 NM Amsterdam (De Weteringschans)",
-        "Price": 2200,
+        "Zip Code": "1018",
+        "Address": "1018 KZ Amsterdam (Oostelijke Eilanden/Kadijken)",
+        "Price": 1950,
         "Rooms": 2,
-        "Surface Area": 66,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1471000/lange-leidsedwarsstraat/"
-    },
-    {
-        "Zip Code": "1017",
-        "Address": "1017 RD Amsterdam",
-        "Price": 2600,
-        "Rooms": 2,
-        "Surface Area": 81,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-korte-leidsedwarsstraat-60-e/43797414/"
-    },
-    {
-        "Zip Code": "1073",
-        "Address": "1073 ED Amsterdam",
-        "Price": 2375,
-        "Rooms": 2,
-        "Surface Area": 68,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-sarphatipark-128-4/43729865/"
-    },
-    {
-        "Zip Code": "1073",
-        "Address": "1073 AP Amsterdam",
-        "Price": 2500,
-        "Rooms": 2,
-        "Surface Area": 57,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-tweede-van-der-helststraat-97-2/43720926/"
+        "Surface Area": 43,
+        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/973bdc99/willem-parelstraat"
     },
     {
         "Zip Code": "1011",
-        "Address": "1011 TV Amsterdam",
-        "Price": 2250,
-        "Rooms": 1,
-        "Surface Area": 55,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-rapenburg-31-e/43773156/"
+        "Address": "1011 KR Amsterdam (Nieuwmarkt/Lastage)",
+        "Price": 2000,
+        "Rooms": 2,
+        "Surface Area": 122,
+        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/1f2d51cf/oudeschans"
     },
     {
-        "Zip Code": "1012",
-        "Address": "1012 NS Amsterdam",
-        "Price": 2100,
-        "Rooms": 1,
-        "Surface Area": 58,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-wijde-kapelsteeg-1-c/43435177/"
-    },
-    {
-        "Zip Code": "1012",
-        "Address": "1012 ER Amsterdam",
-        "Price": 2300,
-        "Rooms": 1,
-        "Surface Area": 55,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-oudezijds-voorburgwal-133-1/43711210/"
-    },
-    {
-        "Zip Code": "1012",
-        "Address": "1012 JE Amsterdam",
-        "Price": 2500,
-        "Rooms": 1,
-        "Surface Area": 68,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-warmoesstraat-46-b/43703883/"
+        "Zip Code": "1051",
+        "Address": "1051 ME Amsterdam (Staatsliedenbuurt)",
+        "Price": 1640,
+        "Rooms": 2,
+        "Surface Area": 87,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479455/buyskade/"
     },
     {
         "Zip Code": "1091",
-        "Address": "1091 VC Amsterdam",
-        "Price": 2400,
-        "Rooms": 1,
-        "Surface Area": 57,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-vrolikstraat-291-b/43721944/"
+        "Address": "1091 GN Amsterdam (Weesperzijde)",
+        "Price": 1660,
+        "Rooms": 2,
+        "Surface Area": 71,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479162/wibautstraat/"
     },
     {
-        "Zip Code": "1091",
-        "Address": "1091 GR Amsterdam",
-        "Price": 2600,
+        "Zip Code": "1018",
+        "Address": "1018 KZ Amsterdam (Oostelijke Eilanden/Kadijken)",
+        "Price": 1509,
+        "Rooms": 1,
+        "Surface Area": 32,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479534/willem-parelstraat/"
+    },
+    {
+        "Zip Code": "1018",
+        "Address": "1018 KZ Amsterdam (Oostelijke Eilanden/Kadijken)",
+        "Price": 1745,
         "Rooms": 1,
         "Surface Area": 85,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-wibautstraat-180-f/43722963/"
-    },
-    {
-        "Zip Code": "1073",
-        "Address": "1073 TS Amsterdam",
-        "Price": 2350,
-        "Rooms": 1,
-        "Surface Area": 56,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-van-ostadestraat-208-3/43714013/"
-    },
-    {
-        "Zip Code": "1016",
-        "Address": "1016 ER Amsterdam",
-        "Price": 2500,
-        "Rooms": 1,
-        "Surface Area": 65,
-        "URL": "https://www.funda.nl/detail/huur/amsterdam/appartement-huidenstraat-15-2/43712248/"
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/1479547/willem-parelstraat/"
     }
 ]

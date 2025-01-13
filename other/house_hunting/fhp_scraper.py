@@ -17,9 +17,9 @@ MAILJET_API_KEY = 'REDACTED_MAILJET_API_KEY'          # Mailjet API Key (Public 
 MAILJET_SECRET_KEY = 'REDACTED_MAILJET_SECRET_KEY'    # Mailjet Secret Key (Private Key)
 
 # URLs for the search
-FUNDA_URL = 'https://www.funda.nl/zoeken/huur?selected_area=%5B%22amsterdam%22%5D&energy_label=%5B%22A%22,%22A%2B%22,%22A%2B%2B%22,%22A%2B%2B%2B%22,%22A%2B%2B%2B%2B%22%5D&price=%22-3000%22&object_type=%5B%22house%22,%22apartment%22%5D&floor_area=%2250-125%22&rooms=%22-3%22&bedrooms=%22-3%22'
-HUURWONINGEN_URL = 'https://www.huurwoningen.com/in/amsterdam/?price=900-2250&living_size=50'
-PARARIUS_URL = 'https://www.pararius.com/apartments/amsterdam/apartment/900-2000/50m2'
+FUNDA_URL = 'https://www.funda.nl/zoeken/huur?selected_area=[%22amsterdam%22]&price=%221000-2000%22&object_type=[%22house%22,%22apartment%22]&publication_date=%225%22&floor_area=%2240-100%22&rooms=%220-3%22&bedrooms=%220-3%22'
+HUURWONINGEN_URL = 'https://www.huurwoningen.com/in/amsterdam/?price=900-2000&living_size=25&since=3'
+PARARIUS_URL = 'https://www.pararius.com/apartments/amsterdam/apartment/900-2000/25m2/since-3'
 
 runheadless = 0
 
@@ -91,7 +91,8 @@ def fetch_all_pages_funda(driver):
 
         try:
             # Find the "Volgende" button
-            next_button = driver.find_element(By.XPATH, '//span[contains(text(), "Volgende")]/../..')
+            #next_button = driver.find_element(By.XPATH, '//span[contains(text(), "Volgende")]/../..')
+            next_button = driver.find_element(By.XPATH, '//a[@aria-label="Volgende"]')
             
             # Check if the button is disabled (class contains 'disabled')
             if "disabled" in next_button.get_attribute("class"):
@@ -109,7 +110,8 @@ def fetch_all_pages_funda(driver):
 
         except Exception as e:
             print("No more pages or an error occurred:", e)
-            break
+            return listings
+            #break
     return listings
 
 # Main function to load cookies and fetch listings across multiple pages
@@ -452,8 +454,13 @@ def fetch_pararius_with_pagination(url):
 def job():
     start_time = time.time()
 
-    valid_zipcodes = {"1011", "1012", "1015", "1016", "1017", "1018", "1072", "1073", "1074", "1091", "1092"}
-
+    #valid_zipcodes = {"1011", "1012", "1015", "1016", "1017", "1018", "1072", "1073", "1074", "1091", "1092"}
+    valid_zipcodes = {
+    "1010", "1011", "1012", "1013", "1014", "1015", "1016", "1017", "1018", "1019",
+    "1050", "1051", "1052", "1053", "1054",
+    "1070", "1071", "1072", "1073", "1074", "1075", "1076", "1077", "1078", "1079",
+    "1090", "1091", "1092", "1093", "1094", "1095", "1096", "1097", "1098", "1099"
+    }
     funda_listings = fetch_funda_with_pagination(FUNDA_URL)
     huurwoningen_listings = fetch_huurwoningen_with_pagination(HUURWONINGEN_URL)
     pararius_listings = fetch_pararius_with_pagination(PARARIUS_URL)
@@ -492,7 +499,7 @@ def job():
         # Sort the cleaned list according to the specified criteria
         sorted_list = sorted(cleaned_list, key=lambda x: (
             -x['Rooms'],
-            ["1011", "1012", "1074", "1018", "1091", "1017", "1092", "1015", "1092", "1073", "1072", "1016"].index(x['Zip Code']),
+            list(valid_zipcodes).index(x['Zip Code']),
             x['Price'],
             -x['Surface Area']
         ))
