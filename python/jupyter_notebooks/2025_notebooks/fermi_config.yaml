@@ -1,0 +1,15 @@
+binning:
+  binsz: 0.1
+  emax: 1000000
+  emin: 1000
+  enumbins: 20
+  roiwidth: 1
+data:
+  evfile: /Users/vdk/shared/fermibottle/sgr1900+14/PH.txt
+  scfile: /Users/vdk/shared/fermibottle/sgr1900+14/L250410052842F357373F73_SC00.fits
+gtlike:
+  irfs: P8R3_SOURCE_V3
+selection:
+  evclass: 128
+  evtype: 3
+  zmax: 90

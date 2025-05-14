@@ -1,0 +1,7 @@
+/Users/vdk/software/my_codebase/python/jupyter_notebooks/2025_notebooks/SMC_data/./L250410052842F357373F73_PH00.fits
+/Users/vdk/software/my_codebase/python/jupyter_notebooks/2025_notebooks/SMC_data/./L250410052842F357373F73_PH01.fits
+/Users/vdk/software/my_codebase/python/jupyter_notebooks/2025_notebooks/SMC_data/./L250410052842F357373F73_PH02.fits
+/Users/vdk/software/my_codebase/python/jupyter_notebooks/2025_notebooks/SMC_data/./L250410052842F357373F73_PH03.fits
+/Users/vdk/software/my_codebase/python/jupyter_notebooks/2025_notebooks/SMC_data/./L250410052842F357373F73_PH04.fits
+/Users/vdk/software/my_codebase/python/jupyter_notebooks/2025_notebooks/SMC_data/./L250410052842F357373F73_PH05.fits
+/Users/vdk/software/my_codebase/python/jupyter_notebooks/2025_notebooks/SMC_data/./L250410052842F357373F73_PH06.fits
