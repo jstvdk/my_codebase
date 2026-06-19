@@ -1,0 +1,4 @@
+{
+  "marimo.browserType": "embedded",
+  "marimo.pythonPath": "/Users/vdk/miniforge3/envs/fermipy/bin/python"
+}

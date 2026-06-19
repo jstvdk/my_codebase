@@ -1,0 +1,53 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: energy, unit: GeV, datatype: float64}
+# - {name: energy_lo, unit: GeV, datatype: float64}
+# - {name: energy_hi, unit: GeV, datatype: float64}
+# - {name: flux, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: flux_error_lo, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: flux_error_hi, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: ul, datatype: bool}
+# - {name: instrument, datatype: string}
+# - {name: group, datatype: int64}
+# meta: !!omap
+# - keywords:
+#     cl: {value: 0.95}
+# - {instrument: H.E.S.S.}
+# - {source: HOTS J1907+091}
+# - {reference: 'Hnatyk et al. 2022, MNRAS 516, 4196'}
+# - {pivot_energy: 1.0 TeV}
+# - {index: 2.3}
+# - {error_model: propagated}
+# - {generation: 'butterfly: error propagated from PL norm+index covariance (bow-tie)'}
+# - __serialized_columns__:
+#     energy:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: &id001 !astropy.units.Unit {unit: GeV}
+#       value: !astropy.table.SerializedColumn {name: energy}
+#     energy_hi:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id001
+#       value: !astropy.table.SerializedColumn {name: energy_hi}
+#     energy_lo:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id001
+#       value: !astropy.table.SerializedColumn {name: energy_lo}
+#     flux:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: &id002 !astropy.units.Unit {unit: 1 / (GeV s cm2)}
+#       value: !astropy.table.SerializedColumn {name: flux}
+#     flux_error_hi:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id002
+#       value: !astropy.table.SerializedColumn {name: flux_error_hi}
+#     flux_error_lo:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id002
+#       value: !astropy.table.SerializedColumn {name: flux_error_lo}
+# schema: astropy-2.0
+energy energy_lo energy_hi flux flux_error_lo flux_error_hi ul instrument group
+1333.521432163324 1000.0 1778.2794100389228 2.883445902754189e-16 7.619239238102268e-17 7.619239238102268e-17 False H.E.S.S. 1
+2371.3737056616555 1778.2794100389228 3162.2776601683795 7.67205677203227e-17 1.5967038828077493e-17 1.5967038828077493e-17 False H.E.S.S. 1
+4216.965034285823 3162.2776601683795 5623.413251903491 2.0413233713545427e-17 4.248390034064642e-18 4.248390034064642e-18 False H.E.S.S. 1
+7498.942093324558 5623.413251903491 10000.0 5.431400249316025e-18 1.4351973053456303e-18 1.4351973053456303e-18 False H.E.S.S. 1

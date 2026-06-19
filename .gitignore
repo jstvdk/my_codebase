@@ -23,3 +23,7 @@ python/sgr1900/results
 
 # Local tool/cache metadata.
 .claude/
+
+# Nested repositories kept outside this parent repo.
+python/projects/detector-simulator
+python/projects/fetch-them-all

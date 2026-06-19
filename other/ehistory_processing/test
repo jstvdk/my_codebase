@@ -1,0 +1,13 @@
+
+ Opening file DAT000101                                                             
+ CORSIKA data file header:
+     run number:              101
+     date of start:      20241209
+     program version:       7.710
+ ANALYSIS: initialization of histograms   100
+ GET_SHOWER_HEADER: new shower:      1
+ ID |gen.count.|  ENERGY  |   P_x   |   P_y    |   P_z    |      x     |      y     |      t
+                                                                       |    chi     |      z
+particle entry found:
+  52        81  1.919E+01  1.000E+00  1.400E+01  1.307E+01  4.10200E+03  1.00000E+00  3.55966E+01
+

@@ -1,0 +1,61 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: energy, unit: GeV, datatype: float64}
+# - {name: energy_lo, unit: GeV, datatype: float64}
+# - {name: energy_hi, unit: GeV, datatype: float64}
+# - {name: flux, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: flux_error_lo, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: flux_error_hi, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: ul, datatype: bool}
+# - {name: instrument, datatype: string}
+# - {name: group, datatype: int64}
+# meta: !!omap
+# - keywords:
+#     cl: {value: 0.95}
+# - {instrument: Fermi-LAT+H.E.S.S.}
+# - {source: HOTS J1907+091}
+# - {reference: 'Hnatyk et al. 2022, MNRAS 516, 4196'}
+# - {generation: 'butterfly: error propagated from PL norm+index covariance (bow-tie)'}
+# - {pivot_energy: 1.0 TeV}
+# - {index: 2.3}
+# - {error_model: propagated}
+# - __serialized_columns__:
+#     energy:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: &id001 !astropy.units.Unit {unit: GeV}
+#       value: !astropy.table.SerializedColumn {name: energy}
+#     energy_hi:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id001
+#       value: !astropy.table.SerializedColumn {name: energy_hi}
+#     energy_lo:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id001
+#       value: !astropy.table.SerializedColumn {name: energy_lo}
+#     flux:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: &id002 !astropy.units.Unit {unit: 1 / (GeV s cm2)}
+#       value: !astropy.table.SerializedColumn {name: flux}
+#     flux_error_hi:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id002
+#       value: !astropy.table.SerializedColumn {name: flux_error_hi}
+#     flux_error_lo:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id002
+#       value: !astropy.table.SerializedColumn {name: flux_error_lo}
+# schema: astropy-2.0
+energy energy_lo energy_hi flux flux_error_lo flux_error_hi ul instrument group
+0.07071067811865475 0.05 0.1 6.408781517656313e-06 3.2043907588281563e-06 3.2043907588281563e-06 True Fermi-LAT 0
+0.17320508075688773 0.1 0.3 2.7837130472095e-07 2.787874053259141e-07 2.683848902018129e-07 False Fermi-LAT 0
+0.5477225575051662 0.3 1.0 1.3448371552438124e-08 5.627760682138787e-09 5.39682484638374e-09 False Fermi-LAT 0
+1.7320508075688772 1.0 3.0 1.0712510074799493e-09 2.1928501881605486e-10 2.2074137093342907e-10 False Fermi-LAT 0
+5.477225575051661 3.0 10.0 5.663129233560732e-11 1.781950840758548e-11 1.7655148668624682e-11 False Fermi-LAT 0
+17.320508075688775 10.0 30.0 3.927989710860641e-12 1.960041899683162e-12 2.0291146001071945e-12 False Fermi-LAT 0
+54.772255750516614 30.0 100.0 6.253992092609686e-13 3.126996046304843e-13 3.126996046304843e-13 True Fermi-LAT 0
+316.2277660168379 100.0 1000.0 2.3043651502909143e-14 9.162535321308402e-15 1.0523184299540851e-14 False Fermi-LAT 0
+1333.521432163324 1000.0 1778.2794100389228 2.883445902754189e-16 7.619239238102268e-17 7.619239238102268e-17 False H.E.S.S. 1
+2371.3737056616555 1778.2794100389228 3162.2776601683795 7.67205677203227e-17 1.5967038828077493e-17 1.5967038828077493e-17 False H.E.S.S. 1
+4216.965034285823 3162.2776601683795 5623.413251903491 2.0413233713545427e-17 4.248390034064642e-18 4.248390034064642e-18 False H.E.S.S. 1
+7498.942093324558 5623.413251903491 10000.0 5.431400249316025e-18 1.4351973053456303e-18 1.4351973053456303e-18 False H.E.S.S. 1

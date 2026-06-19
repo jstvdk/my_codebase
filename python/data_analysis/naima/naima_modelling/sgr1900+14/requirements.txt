@@ -1,0 +1,8 @@
+# Pip dependencies for the SGR 1900+14 naima tutorial project.
+# Prefer the conda route (environment.yml); use this only for a pure-pip setup:
+#   python -m venv venv && source venv/bin/activate
+#   pip install -r requirements.txt
+# Open the notebooks however you like (your IDE, classic Jupyter, ...).
+naima==0.10.2          # brings in astropy, numpy, scipy, emcee, corner, h5py
+matplotlib>=3.8
+ipykernel              # lets any Jupyter front-end / IDE run this env as a kernel

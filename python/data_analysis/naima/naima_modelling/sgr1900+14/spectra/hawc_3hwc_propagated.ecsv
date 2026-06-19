@@ -1,0 +1,55 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: energy, unit: GeV, datatype: float64}
+# - {name: energy_lo, unit: GeV, datatype: float64}
+# - {name: energy_hi, unit: GeV, datatype: float64}
+# - {name: flux, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: flux_error_lo, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: flux_error_hi, unit: 1 / (GeV s cm2), datatype: float64}
+# - {name: ul, datatype: bool}
+# - {name: instrument, datatype: string}
+# - {name: group, datatype: int64}
+# meta: !!omap
+# - keywords:
+#     cl: {value: 0.95}
+# - {instrument: HAWC}
+# - {source: 3HWC J1907+085}
+# - {reference: 'Hnatyk et al. 2022, MNRAS 516, 4196'}
+# - {pivot_energy: 7.0 TeV}
+# - {index: 2.95}
+# - {error_model: propagated}
+# - {generation: 'butterfly: error propagated from PL norm+index covariance (bow-tie)'}
+# - __serialized_columns__:
+#     energy:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: &id001 !astropy.units.Unit {unit: GeV}
+#       value: !astropy.table.SerializedColumn {name: energy}
+#     energy_hi:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id001
+#       value: !astropy.table.SerializedColumn {name: energy_hi}
+#     energy_lo:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id001
+#       value: !astropy.table.SerializedColumn {name: energy_lo}
+#     flux:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: &id002 !astropy.units.Unit {unit: 1 / (GeV s cm2)}
+#       value: !astropy.table.SerializedColumn {name: flux}
+#     flux_error_hi:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id002
+#       value: !astropy.table.SerializedColumn {name: flux_error_hi}
+#     flux_error_lo:
+#       __class__: astropy.units.quantity.Quantity
+#       unit: *id002
+#       value: !astropy.table.SerializedColumn {name: flux_error_lo}
+# schema: astropy-2.0
+energy energy_lo energy_hi flux flux_error_lo flux_error_hi ul instrument group
+1467.79926762207 1000.0 2154.4346900318847 8.42658949202597e-16 2.949497277998562e-16 2.949497277998562e-16 False HAWC 2
+3162.2776601683795 2154.4346900318847 4641.588833612777 8.756257086427259e-17 2.875786148036932e-17 2.875786148036932e-17 False HAWC 2
+6812.920690579612 4641.588833612777 10000.0 9.098822036621323e-18 2.916671039877449e-18 2.916671039877449e-18 False HAWC 2
+14677.99267622069 10000.0 21544.346900318822 9.454788916880158e-19 3.095490656071327e-19 3.095490656071327e-19 False HAWC 2
+31622.77660168376 21544.346900318822 46415.888336127726 9.824682041583756e-20 3.419900515174874e-20 3.419900515174874e-20 False HAWC 2
+68129.20690579609 46415.888336127726 100000.0 1.0209046237498508e-20 3.8833348279239784e-21 3.8833348279239784e-21 False HAWC 2

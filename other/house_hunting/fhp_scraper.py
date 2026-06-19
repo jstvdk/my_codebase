@@ -562,7 +562,7 @@ def job():
 # Run the job once when the program starts
 job()
 
-schedule.every(5).minutes.do(lambda: (print("restarting job now"), job()))
+schedule.every(60).minutes.do(lambda: (print("restarting job now"), job()))
 
 while True:
     schedule.run_pending()

@@ -1,0 +1,42 @@
+data:
+  evfile : '/Users/vdk/data/sgr1900+14/events.txt'
+  scfile : '/Users/vdk/data/sgr1900+14/L250605060548FE92A46E95_SC00.fits'
+
+binning:
+  roiwidth   : 15
+  binsz      : 0.05
+  binsperdec : 8
+  coordsys   : 'GAL'
+
+selection :
+  emin : 1000
+  emax : 500000
+  radius   : 7.5        # match download radius (deg)
+  tmin: 239557417 # Start time in MET seconds 
+  tmax: 765936005  # End time in MET seconds
+  evclass  : 128        # SOURCE
+  zmax    : 90
+  glon : 43.125
+  glat : 0.430
+
+# Split PSF1, PSF2, PSF3 into separate components and exclude PSF0
+components:
+  - selection: {evtype: 8}   # PSF1
+  - selection: {evtype: 16}  # PSF2
+  - selection: {evtype: 32}  # PSF3
+
+gtlike:
+  irfs           : 'P8R3_SOURCE_V3'
+  edisp          : True
+  edisp_disable  : ['isodiff', 'galdiff']
+
+model:
+  src_roiwidth : 7.5
+  src_radius   : 4.0
+  galdiff      : '/Users/vdk/miniforge3/pkgs/fermitools-data-0.18-0/share/fermitools/refdata/fermi/galdiffuse/gll_iem_v07.fits'
+  isodiff      : '/Users/vdk/miniforge3/pkgs/fermitools-data-0.18-0/share/fermitools/refdata/fermi/galdiffuse/iso_P8R2_SOURCE_V6_v06.txt'
+  catalogs     : '/Users/vdk/shared/fermibottle/gll_psc_v35.fit'
+
+fileio:
+  usescratch: False
+  outdir : '/Users/vdk/software/my_codebase/python/data_analysis/fermi_lat/sgr1900/output_sgr_1GeV_15deg_PSF1-3_GAL_datareload'

@@ -1,0 +1,12 @@
+# Conda environment for the SGR 1900+14 naima tutorial project.
+# Create it with:   conda env create -f environment.yml
+# Then activate:    conda activate naima
+# Open the notebooks however you like (your IDE, classic Jupyter, ...).
+name: naima
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - naima=0.10.2        # pulls astropy, numpy, scipy, emcee, corner, h5py
+  - matplotlib
+  - ipykernel           # lets any Jupyter front-end / IDE run this env as a kernel

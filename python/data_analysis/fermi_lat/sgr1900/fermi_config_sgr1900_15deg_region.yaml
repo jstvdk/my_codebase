@@ -1,0 +1,35 @@
+data:
+  evfile : '/Volumes/Crucial/astrodata/fermi_lat/sgr1900+14_alltime_15deg_radius/PH.txt'
+  scfile : '/Volumes/Crucial/astrodata/fermi_lat/sgr1900+14_alltime_15deg_radius/L2504151105455892A76E06_SC00.fits'
+
+binning:
+  roiwidth   : 15
+  binsz      : 0.05
+  binsperdec : 8
+  coordsys   : 'GAL'
+
+selection :
+  emin : 1000
+  emax : 700000
+  tmin: 239557417 # Start time in MET seconds 
+  tmax: 765936005  # End time in MET seconds
+  zmax    : 90
+  evclass : 128
+  evtype  : 3
+  glon: 43.1249
+  glat : 0.4301
+
+gtlike:
+  edisp : True
+  irfs : 'P8R3_SOURCE_V3'
+  edisp_disable : ['isodiff','galdiff']
+
+model:
+  src_roiwidth : 15
+  galdiff  : '/Users/vdk/miniforge3/pkgs/fermitools-data-0.18-0/share/fermitools/refdata/fermi/galdiffuse/gll_iem_v07.fits'
+  isodiff  : '/Users/vdk/miniforge3/pkgs/fermitools-data-0.18-0/share/fermitools/refdata/fermi/galdiffuse/iso_P8R2_SOURCE_V6_v06.txt'
+  catalogs: '/Users/vdk/shared/fermibottle/gll_psc_v35.fit'
+
+fileio:
+  usescratch: False
+  outdir : '/Users/vdk/software/my_codebase/python/data_analysis/fermi_lat/sgr1900/output_sgr_1GeV_15deg_region'

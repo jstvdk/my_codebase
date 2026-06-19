@@ -1,0 +1,38 @@
+data:
+  evfile: ...
+  scfile: ...
+
+binning:
+  roiwidth: 15.0
+  binsz: 0.05
+  binsperdec: 8
+  coordsys: 'GAL'
+
+selection:
+  emin: 100           # 0.2 GeV - lower energy for spectral studies
+  emax: 500000        # 500 GeV
+  radius: 7.5
+  tmin: 239557417     # Start time in MET seconds
+  tmax: 790300800     # 2026-01-16 23:59:55
+  zmax: 90
+  evclass: 128        # SOURCE - maximum statistics for spectral/SED studies
+  evtype: 3           # FRONT+BACK (all conversion types) for maximum statistics
+  glon: 43.1249
+  glat: 0.4301
+  filter: "(DATA_QUAL>0)&&(LAT_CONFIG==1)"
+
+gtlike:
+  irfs: 'P8R3_SOURCE_V3'
+  edisp: True         # CRITICAL for spectral studies, especially at lower energies
+  edisp_disable: ['isodiff', 'galdiff']
+
+model:
+  src_roiwidth: 15
+  galdiff: '/Users/vdk/miniforge3/envs/fermipy/share/fermitools/refdata/fermi/galdiffuse/gll_iem_v07.fits'
+  isodiff: '/Users/vdk/miniforge3/envs/fermipy/share/fermitools/refdata/fermi/galdiffuse/iso_P8R3_SOURCE_V3_v1.txt'
+  catalogs: '/Users/vdk/software/my_codebase/python/data_analysis/fermi_lat/vlad_notebooks/data/gll_psc_v35.fit'
+
+fileio:
+  usescratch: False
+  # Output directory format: output_{emin/1000}-{emax/1000}GeV_{evclass}_{roiwidth}deg_{evtype}_{coordsys}
+  outdir: './output_0.1-500GeV_SOURCE_15deg_ALLPSF_GAL'

@@ -1,0 +1,42 @@
+data:
+  evfile : '/Volumes/Crucial/astrodata/fermi_lat/rcw86_2008_May2025_7.5deg_radius/events.txt'
+  scfile : '/Volumes/Crucial/astrodata/fermi_lat/rcw86_2008_May2025_7.5deg_radius/L250513043801B5DDA27247_SC00.fits'
+
+binning:
+  roiwidth   : 15        # 2 x download radius (7.5°) to cover full circle in a square map
+  binsz      : 0.03    # balances PSF sampling (≥3 pixels per PSF) and runtime
+  binsperdec : 8
+  coordsys   : 'CEL'
+
+selection:
+  ra       : 220.121    # target center (deg)
+  dec      : -62.645    # target center (deg)
+  radius   : 7.5        # match download radius (deg)
+  emin     : 1000       # MeV
+  emax     : 500000     # MeV
+  tmin     : 239557417  # MET start
+  tmax     : 768800591  # MET stop
+  zmax     : 90         # Earth zenith cut (deg)
+  evclass  : 128        # SOURCE
+
+# Split PSF1, PSF2, PSF3 into separate components and exclude PSF0
+components:
+  - selection: {evtype: 8}   # PSF1
+  - selection: {evtype: 16}  # PSF2
+  - selection: {evtype: 32}  # PSF3
+
+gtlike:
+  irfs           : 'P8R3_SOURCE_V3'
+  edisp          : True
+  edisp_disable  : ['isodiff', 'galdiff']
+
+model:
+  src_roiwidth : 7.5
+  src_radius   : 4.0
+  galdiff      : '/Users/vdk/miniforge3/pkgs/fermitools-data-0.18-0/share/fermitools/refdata/fermi/galdiffuse/gll_iem_v07.fits'
+  isodiff      : '/Users/vdk/miniforge3/pkgs/fermitools-data-0.18-0/share/fermitools/refdata/fermi/galdiffuse/iso_P8R2_SOURCE_V6_v06.txt'
+  catalogs     : '/Users/vdk/shared/fermibottle/gll_psc_v35.fit'
+
+fileio:
+  usescratch: False
+  outdir    : '/Users/vdk/software/my_codebase/python/data_analysis/fermi_lat/rcw86/output_rcw_celestial_3GeV_PSF1-3'
