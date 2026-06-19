@@ -1,0 +1,25 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+
+# Large analysis data and generated products live outside the repo.
+*.fits
+*.fits.gz
+*.h5
+*.hdf5
+*.keras
+*.tar
+*.tar.gz
+*.zip
+*.provenance.log
+
+# Generated analysis output directories or symlinks.
+python/data_analysis/**/output*
+python/data_analysis/fermi_lat/updated_pipeline/Fermi_*
+python/data_analysis/fermi_lat/vlad_notebooks/Fermi_*
+python/data_analysis/fermi_lat/vlad_notebooks/data
+python/sgr1900/results
+
+# Local tool/cache metadata.
+.claude/
