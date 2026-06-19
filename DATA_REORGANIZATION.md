@@ -11,6 +11,12 @@ External data root:
 /Users/vdk/software/my_codebase_data
 ```
 
+External nested repository root:
+
+```text
+/Users/vdk/software/my_codebase_external_repos
+```
+
 Moved paths:
 
 ```text
@@ -54,7 +60,20 @@ Each path above now exists in the repository as a symbolic link to:
 /Users/vdk/software/my_codebase_data/<same-relative-path>
 ```
 
+Nested Git repositories moved outside the parent repository:
+
+```text
+python/projects/detector-simulator
+python/projects/fetch-them-all
+```
+
+Each nested repository path now exists in the parent repository as a symbolic
+link to:
+
+```text
+/Users/vdk/software/my_codebase_external_repos/<same-relative-path>
+```
+
 The repository also has `.gitignore` rules for large generated artifacts such as
 FITS files, HDF5 files, Keras checkpoints, tar/zip archives, generated analysis
 output directories, and local caches.
-
