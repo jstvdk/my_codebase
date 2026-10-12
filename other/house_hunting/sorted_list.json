@@ -1,114 +1,186 @@
 [
     {
-        "Zip Code": "1078",
-        "Address": "1078 RH Amsterdam (IJselbuurt)",
-        "Price": 1184,
-        "Rooms": 4,
-        "Surface Area": 59,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1481271/vechtstraat/"
+        "Zip Code": "1012",
+        "Address": "1012JD Warmoesstraat, Amsterdam",
+        "Price": 1800,
+        "Rooms": 2,
+        "Surface Area": 140,
+        "URL": "https://kamernet.nl/en/for-rent/apartment-amsterdam/warmoesstraat/apartment-2410613"
+    },
+    {
+        "Zip Code": "1019",
+        "Address": "1019 HB Amsterdam (Oostelijk Havengebied)",
+        "Price": 1795,
+        "Rooms": 2,
+        "Surface Area": 96,
+        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/9a3956da/waagdragerhof"
     },
     {
         "Zip Code": "1078",
-        "Address": "1078 BJ Amsterdam (IJselbuurt)",
-        "Price": 1080,
-        "Rooms": 3,
-        "Surface Area": 45,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1481274/slingerbeekstraat/"
+        "Address": "1078 AP Amsterdam (IJselbuurt)",
+        "Price": 1228,
+        "Rooms": 2,
+        "Surface Area": 49,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/ea1957a9/amstelkade/"
     },
     {
-        "Zip Code": "1072",
-        "Address": "1072 RB Amsterdam (Nieuwe Pijp)",
-        "Price": 2000,
-        "Rooms": 3,
-        "Surface Area": 68,
-        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/58a49f1e/avercampstraat"
+        "Zip Code": "1078",
+        "Address": "1078 AK Amsterdam (IJselbuurt)",
+        "Price": 1700,
+        "Rooms": 2,
+        "Surface Area": 52,
+        "URL": "https://www.huurwoningen.com/huren/amsterdam/b81f19a8/amstelkade/"
     },
     {
-        "Zip Code": "1094",
-        "Address": "1094 HK Amsterdam (Indische Buurt-West)",
-        "Price": 1950,
-        "Rooms": 3,
-        "Surface Area": 60,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1480807/javastraat/"
+        "Zip Code": "1052",
+        "Address": "1052RT Bilderdijkkade, Amsterdam",
+        "Price": 1250,
+        "Rooms": 2,
+        "Surface Area": 73,
+        "URL": "https://kamernet.nl/en/for-rent/apartment-amsterdam/bilderdijkkade/apartment-2410526"
     },
     {
         "Zip Code": "1018",
-        "Address": "1018 TN Amsterdam (Weesperbuurt/Plantage)",
-        "Price": 1710,
-        "Rooms": 3,
-        "Surface Area": 83,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1481171/plantage-muidergracht/"
+        "Address": "1018LL Oostenburgermiddenstraat, Amsterdam",
+        "Price": 1500,
+        "Rooms": 1,
+        "Surface Area": 50,
+        "URL": "https://kamernet.nl/en/for-rent/apartment-amsterdam/oostenburgermiddenstraat/apartment-2409498"
     },
     {
-        "Zip Code": "1054",
-        "Address": "1054 NG Amsterdam (Helmersbuurt)",
-        "Price": 1157,
-        "Rooms": 3,
-        "Surface Area": 60,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1481272/anna-spenglerstraat/"
+        "Zip Code": "1073",
+        "Address": "1073EH Tweede Sweelinckstraat, Amsterdam",
+        "Price": 1600,
+        "Rooms": 1,
+        "Surface Area": 90,
+        "URL": "https://kamernet.nl/en/for-rent/apartment-amsterdam/tweede-sweelinckstraat/apartment-2411000"
+    },
+    {
+        "Zip Code": "1057",
+        "Address": "1057HK Van Speijkstraat, Amsterdam",
+        "Price": 1850,
+        "Rooms": 1,
+        "Surface Area": 64,
+        "URL": "https://kamernet.nl/en/for-rent/apartment-amsterdam/van-speijkstraat/apartment-2410871"
+    },
+    {
+        "Zip Code": "1096",
+        "Address": "1096AH Duivendrechtsekade, Amsterdam",
+        "Price": 740,
+        "Rooms": 1,
+        "Surface Area": 21,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/duivendrechtsekade/studio-2407248"
+    },
+    {
+        "Zip Code": "1096",
+        "Address": "1096GA Markonstraat, Amsterdam",
+        "Price": 1100,
+        "Rooms": 1,
+        "Surface Area": 25,
+        "URL": "https://kamernet.nl/en/for-rent/apartment-amsterdam/markonstraat/apartment-2409428"
     },
     {
         "Zip Code": "1012",
-        "Address": "1012 CW Amsterdam (Burgwallen-Oude Zijde)",
-        "Price": 1900,
-        "Rooms": 2,
-        "Surface Area": 65,
-        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/88c2c711/kloveniersburgwal"
+        "Address": "1012SW Stromarkt, Amsterdam",
+        "Price": 1650,
+        "Rooms": 0,
+        "Surface Area": 16,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/stromarkt/studio-2408855"
     },
     {
-        "Zip Code": "1078",
-        "Address": "1078 RL Amsterdam (IJselbuurt)",
-        "Price": 1167,
-        "Rooms": 2,
-        "Surface Area": 65,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1481282/vechtstraat/"
+        "Zip Code": "1013",
+        "Address": "1013SR Spaarndammerstraat, Amsterdam",
+        "Price": 1850,
+        "Rooms": 0,
+        "Surface Area": 50,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/spaarndammerstraat/studio-2409900"
     },
     {
-        "Zip Code": "1079",
-        "Address": "1079 RN Amsterdam (Rijnbuurt)",
-        "Price": 1876,
-        "Rooms": 2,
-        "Surface Area": 97,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1454101/peelstraat/"
+        "Zip Code": "1016",
+        "Address": "1016NX Rozenstraat, Amsterdam",
+        "Price": 1050,
+        "Rooms": 0,
+        "Surface Area": 18,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/rozenstraat/studio-2408451"
+    },
+    {
+        "Zip Code": "1018",
+        "Address": "1018PB Czaar Peterstraat, Amsterdam",
+        "Price": 1801,
+        "Rooms": 0,
+        "Surface Area": 28,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/czaar-peterstraat/studio-2406145"
+    },
+    {
+        "Zip Code": "1019",
+        "Address": "1019DZ Zeeburgerpad, Amsterdam",
+        "Price": 1500,
+        "Rooms": 0,
+        "Surface Area": 27,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/zeeburgerpad/studio-2408068"
+    },
+    {
+        "Zip Code": "1072",
+        "Address": "1072XG Daniel Stalpertstraat, Amsterdam",
+        "Price": 2000,
+        "Rooms": 0,
+        "Surface Area": 20,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/daniel-stalpertstraat/studio-2411349"
     },
     {
         "Zip Code": "1074",
-        "Address": "1074 XP Amsterdam (Oude Pijp)",
-        "Price": 1175,
-        "Rooms": 2,
-        "Surface Area": 87,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1481215/tweede-jan-van-der-heijdenstraat/"
+        "Address": "1074ER Rustenburgerstraat, Amsterdam",
+        "Price": 1900,
+        "Rooms": 0,
+        "Surface Area": 30,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/rustenburgerstraat/studio-2410824"
     },
     {
-        "Zip Code": "1015",
-        "Address": "1015 GK Amsterdam (Jordaan)",
-        "Price": 1900,
-        "Rooms": 2,
-        "Surface Area": 80,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1481262/brouwersgracht/"
+        "Zip Code": "1078",
+        "Address": "1078TT Holendrechtstraat, Amsterdam",
+        "Price": 1590,
+        "Rooms": 0,
+        "Surface Area": 45,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/holendrechtstraat/studio-2409879"
     },
     {
-        "Zip Code": "1015",
-        "Address": "1015 GK Amsterdam (Jordaan)",
-        "Price": 1900,
-        "Rooms": 2,
-        "Surface Area": 80,
-        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/330cc534/brouwersgracht"
+        "Zip Code": "1059",
+        "Address": "1059TT Voorburgstraat, Amsterdam",
+        "Price": 955,
+        "Rooms": 0,
+        "Surface Area": 24,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/voorburgstraat/studio-2410564"
     },
     {
         "Zip Code": "1096",
-        "Address": "1096 GJ Amsterdam (Omval/Overamstel)",
-        "Price": 1950,
-        "Rooms": 2,
-        "Surface Area": 40,
-        "URL": "https://www.huurwoningen.com/huren/amsterdam/1480754/welnastraat/"
+        "Address": "1096AH Duivendrechtsekade, Amsterdam",
+        "Price": 939,
+        "Rooms": 0,
+        "Surface Area": 44,
+        "URL": "https://kamernet.nl/en/for-rent/apartment-amsterdam/duivendrechtsekade/apartment-2407249"
     },
     {
         "Zip Code": "1096",
-        "Address": "1096 GJ Amsterdam (Omval/Overamstel)",
-        "Price": 1950,
-        "Rooms": 2,
-        "Surface Area": 40,
-        "URL": "https://www.pararius.com/apartment-for-rent/amsterdam/a90a1aa5/welnastraat"
+        "Address": "1096AH Duivendrechtsekade, Amsterdam",
+        "Price": 947,
+        "Rooms": 0,
+        "Surface Area": 23,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/duivendrechtsekade/studio-2410584"
+    },
+    {
+        "Zip Code": "1096",
+        "Address": "1096GJ Welnastraat, Amsterdam",
+        "Price": 1200,
+        "Rooms": 0,
+        "Surface Area": 28,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/welnastraat/studio-2409820"
+    },
+    {
+        "Zip Code": "1097",
+        "Address": "1097DN Julianaplein, Amsterdam",
+        "Price": 1500,
+        "Rooms": 0,
+        "Surface Area": 48,
+        "URL": "https://kamernet.nl/en/for-rent/studio-amsterdam/julianaplein/studio-2408557"
     }
 ]

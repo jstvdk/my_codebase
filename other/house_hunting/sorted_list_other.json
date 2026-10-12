@@ -1,0 +1,50 @@
+[
+    {
+        "Zip Code": "2014",
+        "Address": "2014 SL Haarlem (Geschiedschrijversbuurt)",
+        "Price": 1850,
+        "Rooms": 3,
+        "Surface Area": 78,
+        "URL": "https://www.huurwoningen.com/huren/haarlem/8cf9158f/lutherlaan/"
+    },
+    {
+        "Zip Code": "2034",
+        "Address": "2034 PE Haarlem (Kruidenbuurt)",
+        "Price": 1245,
+        "Rooms": 3,
+        "Surface Area": 87,
+        "URL": "https://www.huurwoningen.com/huren/haarlem/20ede4da/nederlandlaan/"
+    },
+    {
+        "Zip Code": "2022",
+        "Address": "2022 GA Haarlem",
+        "Price": 1815,
+        "Rooms": 2,
+        "Surface Area": 94,
+        "URL": "https://www.funda.nl/detail/huur/haarlem/appartement-botterboulevard-13/44556689/"
+    },
+    {
+        "Zip Code": "2023",
+        "Address": "2023 RB Haarlem (Bomenbuurt-oost)",
+        "Price": 1250,
+        "Rooms": 2,
+        "Surface Area": 40,
+        "URL": "https://www.huurwoningen.com/huren/haarlem/7e8280a1/marnixstraat/"
+    },
+    {
+        "Zip Code": "2035",
+        "Address": "2035 VW Haarlem",
+        "Price": 1593,
+        "Rooms": 2,
+        "Surface Area": 76,
+        "URL": "https://www.funda.nl/detail/huur/haarlem/appartement-sabapad-38/44558404/"
+    },
+    {
+        "Zip Code": "2014",
+        "Address": "2014 SL Haarlem",
+        "Price": 1850,
+        "Rooms": 1,
+        "Surface Area": 78,
+        "URL": "https://www.funda.nl/detail/huur/haarlem/appartement-lutherlaan-233/44581229/"
+    }
+]

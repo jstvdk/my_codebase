@@ -1,0 +1,5 @@
+.venv/
+.env
+*_cookies.json
+*.swp
+sorted_list.json

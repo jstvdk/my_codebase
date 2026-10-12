@@ -1,12 +1,15 @@
 import smtplib
 from email.mime.text import MIMEText
 import os
+from dotenv import load_dotenv
 
-# Replace these with your details
-SENDER_EMAIL = 'coolmuon@gmail.com'  # Your verified sender email
-RECEIVER_EMAIL = 'coolmuon@gmail.com'          # Recipient's email
-MAILJET_API_KEY = 'REDACTED_MAILJET_API_KEY'          # Mailjet API Key (Public Key)
-MAILJET_SECRET_KEY = 'REDACTED_MAILJET_SECRET_KEY'    # Mailjet Secret Key (Private Key)
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env'))
+
+# Set these in your shell env or a local .env file (see .env.example)
+SENDER_EMAIL = os.environ['SENDER_EMAIL']
+RECEIVER_EMAIL = os.environ['RECEIVER_EMAIL']
+MAILJET_API_KEY = os.environ['MAILJET_API_KEY']
+MAILJET_SECRET_KEY = os.environ['MAILJET_SECRET_KEY']
 
 # Create the email content
 subject = 'Test Email from Mailjet'
